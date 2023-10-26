@@ -9,12 +9,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('fashion_professionals', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('avatar')->nullable();
+            $table->foreignUuid('id');
             $table->string('name');
             $table->string('password');
             $table->string('email')->unique();
-            $table->integer('zip_code', 8);
+            $table->string('avatar')->nullable();
+            $table->string('zip_code');
             $table->string('address');
             $table->string('number');
             $table->string('neighborhood');
