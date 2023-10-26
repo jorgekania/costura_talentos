@@ -7,8 +7,14 @@ O projeto tem como objetivo conectar, costureiras, faccionistas, modelistas, alf
         - [ ]  Docker
             - [ ]  Banco de Dados: MySql
                 - [ ]  `user`- Administradores
-                - [ ]  `fashion_professionals`(dados das empresas e profissionais)
-                - [ ]  `fashion_companies`(onde terão os dados das vagas colocadas pelas empresas)
+                - [ ]  `fashion_professionals`(dados dos profissionais)
+                - [ ]  `fashion_companies`(dados das empresas)
+                - [ ]  `fashion_phones` (telefones dos profissionais e das empresas)
+                - [ ]  `fashion_social_media` (redes sociais dos profissionais e das empresas)
+                - [ ]  `fashion_professional_specialization` (lista de especializações)
+                - [ ]  `fashion_industrial_machines` (lista de maquinas industriais)
+                - [ ]  `fashion_vacancies` (vagas adicionadas pelas empresas)
+                - [ ]  `fashion_machines_vacancies` (maquinas exigidas nas vagas)
         - [ ]  Testes
     - [ ]  FrontEnd Blade Laravel
         - [ ]  Tailwindcss
