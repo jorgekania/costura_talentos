@@ -1,66 +1,233 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto Costura Talentos (SaaS)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+O projeto tem como objetivo conectar, costureiras, faccionistas, modelistas, alfaiates, etc, a empresas que diariamente necessitam destes profissionais, seja dentro da empresa ou como freelance. [www.costuratalentos.com.br](http://www.costuratalentos.com.br)
 
-## About Laravel
+- [ ]  **Requisitos de sistema**
+    - [ ]  Backend Laravel
+        - [ ]  Docker
+            - [ ]  Banco de Dados: MySql
+                - [ ]  `user`- Administradores
+                - [ ]  `fashion_professionals`(dados das empresas e profissionais)
+                - [ ]  `fashion_companies`(onde terão os dados das vagas colocadas pelas empresas)
+        - [ ]  Testes
+    - [ ]  FrontEnd Blade Laravel
+        - [ ]  Tailwindcss
+        - [ ]  Javascritp ECMA
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [ ]  **Hierarquia do Sistema**
+    - [ ]  **Área de Busca**
+        - [ ]  *Busca por profissional*
+            - [ ]  Filtros
+                - [ ]  Cidade
+                - [ ]  Bairro
+                - [ ]  Estado
+                - [ ]  Tipo de profissional (alfaite, costureira(o), modelista, faccionista, designer, etc )
+                - [ ]  Especialidades do profissional
+                - [ ]  Tempo de experiencia
+                - [ ]  Valor de pagamento (hora ou mês)
+                - [ ]  Faixa de Expectativa de ganho
+        - [ ]  *Busca por oportunidades (profissional)*
+            - [ ]  Filtros
+                - [ ]  Cidade
+                - [ ]  Bairro
+                - [ ]  Estado
+                - [ ]  Tempo de experiencia
+                - [ ]  Valor de pagamento (hora ou mês)
+                - [ ]  Faixa de Expectativa de ganho
+    - [ ]  Home
+    - [ ]  Sobre
+    - [ ]  Contato
+    - [ ]  Apoie o Projeto (avaliar)
+    - [ ]  **Área de profissionais**
+        - [ ]  Avatar/Foto
+        - [ ]  Nome
+        - [ ]  Endereço (Cep, Rua, Bairro, Cidade, Estado)
+        - [ ]  Que tipo de profissional (criaremos uma tabela para armazenar os profissionais )
+            - [ ]  Se for costureira(o), prefere trabalhar como?
+                - [ ]  Na empresa (CLT/PJ)
+                - [ ]  Diarista (PJ)
+                - [ ]  Facção (PJ)
+                    - [ ]  Que maquinas a facção possui (criaremos uma tabela para armazenar as principais máquinas)
+                    - [ ]  Endereço da facção
+        - [ ]  Diárias
+        - [ ]  Quanto tempo trabalha na área
+        - [ ]  Sua experiencia (fale um de você)
+        - [ ]  Valor Hora ou Valor Mês
+    - [ ]  **Área de empresas**
+        - [ ]  Logo
+        - [ ]  Nome
+        - [ ]  Endereço (Cep, Rua, Bairro, Cidade, Estado)
+        - [ ]  Que regime de contratação
+            - [ ]  CLT ou PJ
+                - [ ]  Para trabalhar na empresa?
+                - [ ]  Diarista
+                - [ ]  Faccionista
+            - [ ]  Forma de remuneração?
+                - [ ]  Hora
+                    - [ ]  Valor
+                - [ ]  Mensal
+                    - [ ]  Valor mensal
+            - [ ]  Que tipo de profissional que contratar (alfaite, costureira(o), modelista, faccionista, designer, etc )
+            - [ ]  Quanto tempo de experiencia
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Estrutura de Banco Dados para o Site Costura Talentos (SaaS)
 
-## Learning Laravel
+## Profissionais
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Tabela: `fashion_professionals`
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **id**: Identificação única do profissional.
+- **uuid**: Identificação aberta e única do profissional (tem que criar um observer para gerar o UUID).
+- **avatar**: Foto do profissional (opcional)
+- **name**: Nome completo do profissional.
+- **password**: Senha do profissional.
+- **email**: Endereço de e-mail do profissional (unique).
+- **zip_code**: Cep do profissional
+- **address**: Endereço do profissional
+- **number**: Número do endereço do profissional
+- **neighborhood**: Bairro do profissional
+- **complement**: Complemento do endereço (opcional)
+- **city**: Cidade onde o profissional está localizado.
+- **state**: Estado ou região onde o profissional está localizado.
+- **id_area_of_specialization**: ID relacionado a tabela especialização do profissional (por exemplo, costureiro, estilista, modelista, etc.).
+- **experience**: Descrição da experiência e habilidades do profissional.
+- **portfolio**: Link para o portfólio online do profissional (opcional).
+- **curriculum**: Link para o currículo do profissional (opcional).
+- **time_experience**: Tempo de experiencia do profissional (opcional)
+- **prefer_to_work_where**: Prefere trabalhar onde (dentro da empresa/diarista/horista/mensal/faccionista)
+- **hiring_regime**: Regime de contratação preferido (PJ, CLT, Qualquer um)
+- **form_of_remuneration**: Forma de remuneração do profissional, hora/diaria/mês (opcional)
+- **remuneration_value**: Valor da remuneração esperada pelo profissional (opcional)
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Empresas
 
-## Laravel Sponsors
+### Tabela: `fashion_companies`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- **id**: Identificação única da empresa.
+- **uuid**: Identificação aberta e única da empresa.
+- **logo**: Logo da empresa (opcional).
+- **corporate_reason**: Nome da empresa.
+- **email**: E-mail de contato da empresa.
+- **password**: Senha da empresa.
+- **zip_code**: Cep do profissional
+- **address**: Endereço do profissional
+- **number**: Número do endereço do profissional
+- **complement**: Complemento do endereço (opcional)
+- **city**: Cidade onde o profissional está localizado.
+- **state**: Estado ou região onde o profissional está localizado.
+- **fashion_segment**: Setor da moda em que a empresa atua (por exemplo, moda feminina, moda masculina, moda infantil, etc.).
+- **company_size:** Porte da empresa (Grande, Média, Pequena)
+- **description**: Descrição da empresa, sua história e atividades.
+- **website**: Website da empresa.
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
 
-### Premium Partners
+## Tabelas Auxiliares
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Tabela: `fashion_phones`
 
-## Contributing
+- **id**: Id de identificação único.
+- **uuid**: Identificação aberta e única da do telefone.
+- **id_relationship**: Id que relaciona com o ID do profissional ou ID da empresa.
+- **type_relationship**: Id que identifica se é um telefone de profissional ou de empresa.
+- **type_phone**: Se é celular, fixo, WhatsApp.
+- **phone**: Número do telefone sem formatação.
+- **is_main**: É o telefone principal.
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Tabela: `fashion_professional_specialization`
 
-## Code of Conduct
+***Referencia:*** [Profissões na área da moda | Indeed.com Brasil](https://br.indeed.com/conselho-de-carreira/encontrando-emprego/profissoes-area-moda#:~:text=A%20%C3%A1rea%20da%20moda%20pode,estampas%2C%20etiquetas%20e%20aviamentos)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **id**: Id de identificação único.
+- **uuid**: Identificação aberta e única da do especialização.
+- **specialization**: Nome da especialização.
+- **description**: Descrição da especialização.
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
 
-## Security Vulnerabilities
+### Tabela: `fashion_industrial_machines`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+***Referencias:*** [Tipos de máquinas industriais utilizadas nas confecções - (audaces.com)](https://audaces.com/pt-br/blog/tipos-de-maquinas-industriais-utilizadas-nas-confeccoes)[10 tipos de máquinas de costura mais utilizados | Artigos | Cursos a Distância CPT](https://www.cpt.com.br/artigos/10-tipos-de-maquinas-de-costura-mais-utilizados)
 
-## License
+- **id**: Id de identificação único.
+- **machines**: Nome da maquina.
+- **description**: Descrição da maquina.
+- **image**: Foto da maquina.
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Tabela: `fashion_social_media`
+
+- **id**: Id de identificação único.
+- **uuid**: Identificação aberta e única da do rede social.
+- **id_relationship**: Id que relaciona com o ID do profissional ou ID da empresa.
+- **name_social_media**: Nome da rede social
+- **link_social_media**: Rede social da empresa ou profissional
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
+
+### Tabela: `fashion_vacancies`
+
+- **id**: Id de identificação único.
+- **uuid**: Identificação aberta e única da para vaga.
+- **id_relationship**: Id que relaciona com o ID da empresa que disponibilizou a vaga.
+- **id_area_of_specialization**: ID da área de especialização que é a vaga
+- **time_experience**: Requer experiencia (tempo mínimo, se vazio não requer)
+- **work_where**: Para trabalhar (Mensalista/Diarista/Horista)
+- **remuneration_value**: Valor da remuneração (opcional, se vazio não mostrar)
+- **hiring_regime**: Regime de contratação preferido (PJ, CLT, Qualquer um)
+- **activities_and_responsibilities**: Atividades e Responsabilidades da vaga
+- **requirements**: Requesrimentos para a vaga
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
+
+### Tabela: `fashion_machines_vacancies`
+
+- **id**: Id de identificação único.
+- **id_vacancies**: Id que relaciona com o ID da vaga.
+- **id_industrial_machines**: ID da da máquina exigida para a vaga
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
+
+# Filtros
+
+### Filtros de Busca para Profissionais
+
+- **Cidade**: Opção para filtrar por cidade.
+- **Estado**: Opção para filtrar por estado.
+- **Bairro**: Opção para filtrar por bairro.
+- **Área de Especialização**: Opção para filtrar por especialização.
+- **Experiência**: Opção para filtrar por níveis de experiência.
+- **Tipo Valor Pagamento**: Opção para filtrar por tipo de valor (hora/mês/diária).
+- **Remuneração esperada**: Opção para filtrar por faixa de valor que o profissional espera ganhar.
+
+### Filtros de Busca para Empresas
+
+- **Cidade**: Opção para filtrar por cidade.
+- **Estado**: Opção para filtrar por estado.
+- **Bairro**: Opção para filtrar por bairro.
+- **Segmento da Moda**: Opção para filtrar por setor da moda.
+- **Experiência**: Opção para filtrar por níveis de experiência.
+- **Tipo Valor Pagamento**: Opção para filtrar por tipo de valor (hora/mês/diária).
+- **Remuneração oferecida**: Opção para filtrar por faixa de valor que o profissional espera ganhar.

@@ -6,13 +6,32 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('fashion_professionals', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('avatar')->nullable();
+            $table->string('name');
+            $table->string('password');
+            $table->string('email')->unique();
+            $table->integer('zip_code', 8);
+            $table->string('address');
+            $table->string('number');
+            $table->string('neighborhood');
+            $table->string('complement')->nullable();
+            $table->string('city');
+            $table->string('long_state');
+            $table->string('short_state', 2);
+            $table->text('experience');
+            $table->string('portifolio_url')->nullable();
+            $table->string('curriculum_url')->nullable();
+            $table->integer('time_experience')->default(0);
+            $table->string('prefer_to_work_where')->default('COMPANIES');
+            $table->string('hiring_regime')->default('CLT');
+            $table->string('form_of_remuneration')->default('MONTH');
+            $table->integer('remuneration_value')->default(0);
+            $table->boolean('is_active')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
