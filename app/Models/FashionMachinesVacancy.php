@@ -2,20 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FashionProfessionalSpecialization extends Model
+class FashionMachinesVacancy extends Model
 {
-    use HasFactory, SoftDeletes, HasUuids;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'id',
-        'uuid',
-        'specialization',
-        'description',
+        'fashion_vacancies_id',
+        'industrial_machines_id',
         'is_active',
     ];
 }

@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
             FashionProfessionalSeeder::class,
             FashionCompanySeeder::class,
             FashionCompaniesSegmentSeeder::class,
+            FashionPhoneSeeder::class,
+            FashionSocialMediaSeeder::class,
+            FashionVacancySeeder::class,
+            FashionMachinesVacancySeeder::class,
         ]);
     }
 }

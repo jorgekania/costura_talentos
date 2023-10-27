@@ -49,4 +49,25 @@ class FashionCompany extends Model
             ->withTimestamps();
     }
 
+    public function phones()
+    {
+        return $this->belongsToMany(FashionPhone::class, 'fashion_phones')
+            ->wherePivot('is_active', true)
+            ->withTimestamps();
+    }
+
+    public function socialMedia()
+    {
+        return $this->belongsToMany(FashionSocialMedia::class, 'fashion_social_media')
+            ->wherePivot('is_active', true)
+            ->withTimestamps();
+    }
+
+    public function vacancy()
+    {
+        return $this->belongsToMany(FashionVacancy::class, 'fashion_vacancies')
+            ->wherePivot('is_active', true)
+            ->withTimestamps();
+    }
+
 }

@@ -1,85 +1,86 @@
-# Projeto Costura Talentos (SaaS)
+# Projeto (SaaS) Costura Talentos
 
 O projeto tem como objetivo conectar, costureiras, faccionistas, modelistas, alfaiates, etc, a empresas que diariamente necessitam destes profissionais, seja dentro da empresa ou como freelance. [www.costuratalentos.com.br](http://www.costuratalentos.com.br)
 
-- [ ]  **Requisitos de sistema**
-    - [ ]  Backend Laravel
-        - [ ]  Docker
-            - [ ]  Banco de Dados: MySql
-                - [ ]  `user`- Administradores
-                - [ ]  `fashion_professionals`(dados dos profissionais)
-                - [ ]  `fashion_companies`(dados das empresas)
-                - [ ]  `fashion_phones` (telefones dos profissionais e das empresas)
-                - [ ]  `fashion_social_media` (redes sociais dos profissionais e das empresas)
-                - [ ]  `fashion_professional_specialization` (lista de especializações)
-                - [ ]  `fashion_industrial_machines` (lista de maquinas industriais)
-                - [ ]  `fashion_vacancies` (vagas adicionadas pelas empresas)
-                - [ ]  `fashion_machines_vacancies` (maquinas exigidas nas vagas)
-        - [ ]  Testes
-    - [ ]  FrontEnd Blade Laravel
-        - [ ]  Tailwindcss
-        - [ ]  Javascritp ECMA
+- **Requisitos de sistema**
+    - Backend Laravel
+        - Docker
+            - Banco de Dados: MySql
+                - `users`- Para Administradores (do Laravel)
+                - `fashion_professionals`(dados dos profissionais)
+                - `fashion_companies`(dados das empresas)
+                - `fashion_phones` (telefones dos profissionais e das empresas)
+                - `fashion_social_media` (redes sociais dos profissionais e das empresas)
+                - `fashion_segments` (segmentos da moda das empresas)
+                - `fashion_company_segments` (segmentos em que uma empresa esta inserido)
+                - `fashion_professional_specialization` (lista de especializações)
+                - `fashion_industrial_machines` (lista de maquinas industriais)
+                - `fashion_vacancies` (vagas adicionadas pelas empresas)
+                - `fashion_machines_vacancies` (maquinas exigidas nas vagas)
+        - Testes
+    - FrontEnd Blade Laravel
+        - Tailwindcss
+        - Javascritp ECMA
 
-- [ ]  **Hierarquia do Sistema**
-    - [ ]  **Área de Busca**
-        - [ ]  *Busca por profissional*
-            - [ ]  Filtros
-                - [ ]  Cidade
-                - [ ]  Bairro
-                - [ ]  Estado
-                - [ ]  Tipo de profissional (alfaite, costureira(o), modelista, faccionista, designer, etc )
-                - [ ]  Especialidades do profissional
-                - [ ]  Tempo de experiencia
-                - [ ]  Valor de pagamento (hora ou mês)
-                - [ ]  Faixa de Expectativa de ganho
-        - [ ]  *Busca por oportunidades (profissional)*
-            - [ ]  Filtros
-                - [ ]  Cidade
-                - [ ]  Bairro
-                - [ ]  Estado
-                - [ ]  Tempo de experiencia
-                - [ ]  Valor de pagamento (hora ou mês)
-                - [ ]  Faixa de Expectativa de ganho
-    - [ ]  Home
-    - [ ]  Sobre
-    - [ ]  Contato
-    - [ ]  Apoie o Projeto (avaliar)
-    - [ ]  **Área de profissionais**
-        - [ ]  Avatar/Foto
-        - [ ]  Nome
-        - [ ]  Endereço (Cep, Rua, Bairro, Cidade, Estado)
-        - [ ]  Que tipo de profissional (criaremos uma tabela para armazenar os profissionais )
-            - [ ]  Se for costureira(o), prefere trabalhar como?
-                - [ ]  Na empresa (CLT/PJ)
-                - [ ]  Diarista (PJ)
-                - [ ]  Facção (PJ)
-                    - [ ]  Que maquinas a facção possui (criaremos uma tabela para armazenar as principais máquinas)
-                    - [ ]  Endereço da facção
-        - [ ]  Diárias
-        - [ ]  Quanto tempo trabalha na área
-        - [ ]  Sua experiencia (fale um de você)
-        - [ ]  Valor Hora ou Valor Mês
-    - [ ]  **Área de empresas**
-        - [ ]  Logo
-        - [ ]  Nome
-        - [ ]  Endereço (Cep, Rua, Bairro, Cidade, Estado)
-        - [ ]  Que regime de contratação
-            - [ ]  CLT ou PJ
-                - [ ]  Para trabalhar na empresa?
-                - [ ]  Diarista
-                - [ ]  Faccionista
-            - [ ]  Forma de remuneração?
-                - [ ]  Hora
-                    - [ ]  Valor
-                - [ ]  Mensal
-                    - [ ]  Valor mensal
-            - [ ]  Que tipo de profissional que contratar (alfaite, costureira(o), modelista, faccionista, designer, etc )
-            - [ ]  Quanto tempo de experiencia
+- **Hierarquia do Sistema**
+    - **Área de Busca**
+        - *Busca por profissional*
+            - Filtros
+                - Cidade
+                - Bairro
+                - Estado
+                - Tipo de profissional (alfaite, costureira(o), modelista, faccionista, designer, etc )
+                - Especialidades do profissional
+                - Tempo de experiencia
+                - Valor de pagamento (hora ou mês)
+                - Faixa de Expectativa de ganho
+        - *Busca por oportunidades (profissional)*
+            - Filtros
+                - Cidade
+                - Bairro
+                - Estado
+                - Tempo de experiencia
+                - Valor de pagamento (hora ou mês)
+                - Faixa de Expectativa de ganho
+    - Home
+    - Sobre
+    - Contato
+    - Apoie o Projeto (avaliar)
+    - **Área de profissionais**
+        - Avatar/Foto
+        - Nome
+        - Endereço (Cep, Rua, Bairro, Cidade, Estado)
+        - Que tipo de profissional (criaremos uma tabela para armazenar os profissionais )
+            - Se for costureira(o), prefere trabalhar como?
+                - Na empresa (CLT/PJ)
+                - Diarista (PJ)
+                - Facção (PJ)
+                    - Que maquinas a facção possui (criaremos uma tabela para armazenar as principais máquinas)
+                    - Endereço da facção
+        - Diárias
+        - Quanto tempo trabalha na área
+        - Sua experiencia (fale um de você)
+        - Valor Hora ou Valor Mês
+    - **Área de empresas**
+        - Logo
+        - Nome
+        - Endereço (Cep, Rua, Bairro, Cidade, Estado)
+        - Que regime de contratação
+            - CLT ou PJ
+                - Para trabalhar na empresa?
+                - Diarista
+                - Faccionista
+            - Forma de remuneração?
+                - Hora
+                    - Valor
+                - Mensal
+                    - Valor mensal
+            - Que tipo de profissional que contratar (alfaite, costureira(o), modelista, faccionista, designer, etc )
+            - Quanto tempo de experiencia
 
-
+#
 # Estrutura de Banco Dados para o Site Costura Talentos (SaaS)
 
-## Profissionais
 
 ### Tabela: `fashion_professionals`
 
@@ -110,7 +111,6 @@ O projeto tem como objetivo conectar, costureiras, faccionistas, modelistas, alf
 - **updated_at**: Data de atualização (automático no laravel).
 - **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
 
-## Empresas
 
 ### Tabela: `fashion_companies`
 
@@ -135,7 +135,8 @@ O projeto tem como objetivo conectar, costureiras, faccionistas, modelistas, alf
 - **updated_at**: Data de atualização (automático no laravel).
 - **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
 
-## Tabelas Auxiliares
+##
+# Tabelas Relacionadas
 
 ### Tabela: `fashion_phones`
 
@@ -146,32 +147,6 @@ O projeto tem como objetivo conectar, costureiras, faccionistas, modelistas, alf
 - **type_phone**: Se é celular, fixo, WhatsApp.
 - **phone**: Número do telefone sem formatação.
 - **is_main**: É o telefone principal.
-- **is_active**: Ativa ou desativa um registro.
-- **created_at**: Data de criação (automático no laravel).
-- **updated_at**: Data de atualização (automático no laravel).
-- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
-
-### Tabela: `fashion_professional_specialization`
-
-***Referencia:*** [Profissões na área da moda | Indeed.com Brasil](https://br.indeed.com/conselho-de-carreira/encontrando-emprego/profissoes-area-moda#:~:text=A%20%C3%A1rea%20da%20moda%20pode,estampas%2C%20etiquetas%20e%20aviamentos)
-
-- **id**: Id de identificação único.
-- **uuid**: Identificação aberta e única da do especialização.
-- **specialization**: Nome da especialização.
-- **description**: Descrição da especialização.
-- **is_active**: Ativa ou desativa um registro.
-- **created_at**: Data de criação (automático no laravel).
-- **updated_at**: Data de atualização (automático no laravel).
-- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
-
-### Tabela: `fashion_industrial_machines`
-
-***Referencias:*** [Tipos de máquinas industriais utilizadas nas confecções - (audaces.com)](https://audaces.com/pt-br/blog/tipos-de-maquinas-industriais-utilizadas-nas-confeccoes)[10 tipos de máquinas de costura mais utilizados | Artigos | Cursos a Distância CPT](https://www.cpt.com.br/artigos/10-tipos-de-maquinas-de-costura-mais-utilizados)
-
-- **id**: Id de identificação único.
-- **machines**: Nome da maquina.
-- **description**: Descrição da maquina.
-- **image**: Foto da maquina.
 - **is_active**: Ativa ou desativa um registro.
 - **created_at**: Data de criação (automático no laravel).
 - **updated_at**: Data de atualização (automático no laravel).
@@ -216,7 +191,57 @@ O projeto tem como objetivo conectar, costureiras, faccionistas, modelistas, alf
 - **updated_at**: Data de atualização (automático no laravel).
 - **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
 
-# Filtros
+### Tabela: `fashion_companies_segments`
+
+- **id**: Id de identificação único.
+- **fasshion_company_od**: Id que relaciona com o ID da empresa.
+- **fasshionm_segment_id**: ID do segmento relacionado
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
+
+##
+# Tabelas Auxiliares
+
+### Tabela: `fashion_professional_specialization`
+
+***Referencia:*** [Profissões na área da moda | Indeed.com Brasil](https://br.indeed.com/conselho-de-carreira/encontrando-emprego/profissoes-area-moda#:~:text=A%20%C3%A1rea%20da%20moda%20pode,estampas%2C%20etiquetas%20e%20aviamentos)
+
+- **id**: Id de identificação único.
+- **uuid**: Identificação aberta e única da do especialização.
+- **specialization**: Nome da especialização.
+- **description**: Descrição da especialização.
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
+
+### Tabela: `fashion_industrial_machines`
+
+***Referencias:*** [Tipos de máquinas industriais utilizadas nas confecções - (audaces.com)](https://audaces.com/pt-br/blog/tipos-de-maquinas-industriais-utilizadas-nas-confeccoes)[10 tipos de máquinas de costura mais utilizados | Artigos | Cursos a Distância CPT](https://www.cpt.com.br/artigos/10-tipos-de-maquinas-de-costura-mais-utilizados)
+
+- **id**: Id de identificação único.
+- **machines**: Nome da maquina.
+- **description**: Descrição da maquina.
+- **image**: Foto da maquina.
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
+
+### Tabela: `fashion_segments`
+
+- **id**: Id de identificação único.
+- **segment**: Nome do segmento.
+- **description**: Descrição do segmento.
+- **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
+
+##
+# Trait para Filtros
 
 ### Filtros de Busca para Profissionais
 
