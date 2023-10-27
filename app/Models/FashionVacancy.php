@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\FashionProfessional;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -36,5 +37,12 @@ class FashionVacancy extends Model
     public function company()
     {
         return $this->belongsTo(FashionCompany::class);
+    }
+
+    public function appliedProfessionals()
+    {
+        return $this->belongsToMany(FashionProfessional::class, 'fashion_professional_applieds', 'fashion_vacancies_id', 'fashion_professional_id')
+            ->withPivot('is_active')
+            ->withTimestamps();
     }
 }

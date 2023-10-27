@@ -14,6 +14,7 @@ return new class extends Migration
 
             $table->foreignUuid('fashion_company_id')->constrained();
 
+            $table->string('professional_or_company')->default('PROFESSIONAL');
             $table->string('phone_type')->default('WHATSAPP');
             $table->string('phone_number');
             $table->boolean('is_main')->default(false);
