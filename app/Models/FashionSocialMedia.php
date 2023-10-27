@@ -12,6 +12,15 @@ class FashionSocialMedia extends Model
     use HasFactory, SoftDeletes, HasUuids;
 
     protected $fillable = [
-
+        'id',
+        'fashion_company_id',
+        'name_social_media',
+        'social_media_url',
+        'is_active',
     ];
+
+    public function fashionCompany()
+    {
+        return $this->belongsTo(FashionCompany::class);
+    }
 }

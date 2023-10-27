@@ -18,4 +18,9 @@ class FashionIndustrialMachines extends Model
         'is_active',
 
     ];
+
+    public function machines()
+    {
+        return $this->belongsTo(FashionMachinesVacancy::class);
+    }
 }

@@ -19,4 +19,9 @@ class FashionPhone extends Model
         'is_main',
         'is_active',
     ];
+
+    public function fashionCompanies()
+    {
+        return $this->belongsTo(FashionCompany::class);
+    }
 }
