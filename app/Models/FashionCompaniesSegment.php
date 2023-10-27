@@ -6,21 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FashionSegment extends Model
+class FashionCompaniesSegment extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'id',
-        'segment',
-        'description',
+        'id_fashion_companies',
+        'id_fashion_segment',
         'is_active',
     ];
-
-    public function companies()
-    {
-        return $this->belongsToMany(FashionCompany::class, 'fashion_companies_segments')
-            ->withPivot('is_active')
-            ->withTimestamps();
-    }
 }

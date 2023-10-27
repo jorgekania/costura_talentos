@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             FashionSegmentSeeder::class,
             FashionProfessionalSeeder::class,
             FashionCompanySeeder::class,
+            FashionCompaniesSegmentSeeder::class,
         ]);
     }
 }
