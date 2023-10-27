@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             FashionSocialMediaSeeder::class,
             FashionVacancySeeder::class,
             FashionMachinesVacancySeeder::class,
+            FashionProfessionalAppliedSeeder::class,
         ]);
     }
 }

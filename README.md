@@ -194,9 +194,18 @@ O projeto tem como objetivo conectar, costureiras, faccionistas, modelistas, alf
 ### Tabela: `fashion_companies_segments`
 
 - **id**: Id de identificação único.
-- **fasshion_company_od**: Id que relaciona com o ID da empresa.
-- **fasshionm_segment_id**: ID do segmento relacionado
+- **fashion_company_od**: Id que relaciona com o ID da empresa.
+- **fashion_segment_id**: ID do segmento relacionado
 - **is_active**: Ativa ou desativa um registro.
+- **created_at**: Data de criação (automático no laravel).
+- **updated_at**: Data de atualização (automático no laravel).
+- **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
+
+### Tabela: `fashion_professional_applied`
+- **id**: Id de identificação.
+- **professional_id**: Id do profissional que se candidatou a vaga.
+- **company_id**: ID da empresa que criou a vaga.
+- **is_active**: Define se esta ou não ativo.
 - **created_at**: Data de criação (automático no laravel).
 - **updated_at**: Data de atualização (automático no laravel).
 - **deleted_at**: Data que foi apagado (automático no laravel com Softdelets).
