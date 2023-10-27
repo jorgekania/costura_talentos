@@ -24,10 +24,17 @@ class FashionVacancy extends Model
         'is_active',
     ];
 
-    public function machineVacancy()
+    protected $with = [
+        'machines',
+    ];
+
+    public function machines()
     {
-        return $this->belongsToMany(FashionMachinesVacancy::class, 'fashion_machines_vacancies')
-            ->wherePivot('is_active', true)
-            ->withTimestamps();
+        return $this->belongsToMany(FashionIndustrialMachines::class, 'fashion_machines_vacancies', 'fashion_vacancies_id', 'industrial_machines_id');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(FashionCompany::class);
     }
 }

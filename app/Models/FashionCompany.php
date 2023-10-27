@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\FashionVacancy;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -34,6 +35,14 @@ class FashionCompany extends Model
         'is_active',
     ];
 
+    protected $with = [
+        'phones',
+        'socialMedia',
+        'vacancies',
+        'segments',
+        'activeSegments',
+    ];
+
     public function segments()
     {
         return $this->belongsToMany(FashionSegment::class, 'fashion_companies_segments')
@@ -51,23 +60,17 @@ class FashionCompany extends Model
 
     public function phones()
     {
-        return $this->belongsToMany(FashionPhone::class, 'fashion_phones')
-            ->wherePivot('is_active', true)
-            ->withTimestamps();
+        return $this->hasMany(FashionPhone::class);
     }
 
     public function socialMedia()
     {
-        return $this->belongsToMany(FashionSocialMedia::class, 'fashion_social_media')
-            ->wherePivot('is_active', true)
-            ->withTimestamps();
+        return $this->hasMany(FashionSocialMedia::class);
     }
 
-    public function vacancy()
+    public function vacancies()
     {
-        return $this->belongsToMany(FashionVacancy::class, 'fashion_vacancies')
-            ->wherePivot('is_active', true)
-            ->withTimestamps();
+        return $this->hasMany(FashionVacancy::class);
     }
 
 }
