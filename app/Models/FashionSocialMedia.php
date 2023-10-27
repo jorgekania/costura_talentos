@@ -7,15 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FashionProfessionalSpecialization extends Model
+class FashionSocialMedia extends Model
 {
     use HasFactory, SoftDeletes, HasUuids;
 
     protected $fillable = [
-        'id',
-        'uuid',
-        'specialization',
-        'description',
-        'is_active',
+
     ];
 }
