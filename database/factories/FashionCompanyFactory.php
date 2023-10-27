@@ -22,7 +22,6 @@ class FashionCompanyFactory extends Factory
             'city'             => fake()->city,
             'long_state'       => fake()->state,
             'short_state'      => fake()->stateAbbr,
-            'id_fashion_segment'  => FashionSegment::pluck('id')->random(),
             'company_size'     => 'GRANDE',
             'description'      => fake()->sentence(2),
             'website'          => fake()->domainName(),

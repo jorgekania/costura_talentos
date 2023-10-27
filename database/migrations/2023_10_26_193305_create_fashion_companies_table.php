@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('fashion_companies', function (Blueprint $table) {
-            $table->foreignUuid('id');
+            $table->foreignUuid('id')->primary();
             $table->string('corporate_reason');
             $table->string('email');
             $table->string('password');
@@ -22,10 +22,6 @@ return new class extends Migration
             $table->string('city');
             $table->string('long_state');
             $table->string('short_state', 2);
-
-            $table->unsignedBigInteger('id_fashion_segment');
-            $table->foreign('id_fashion_segment')->references('id')->on('fashion_segments');
-
             $table->string('company_size');
             $table->text('description');
             $table->string('website')->nullable();

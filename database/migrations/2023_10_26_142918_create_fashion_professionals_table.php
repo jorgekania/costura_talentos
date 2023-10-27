@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('fashion_professionals', function (Blueprint $table) {
-            $table->foreignUuid('id');
+            $table->foreignUuid('id')->primary();
             $table->string('name');
             $table->string('password');
             $table->string('email')->unique();
