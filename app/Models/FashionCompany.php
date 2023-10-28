@@ -7,6 +7,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FashionCompany extends Model
@@ -46,14 +48,20 @@ class FashionCompany extends Model
         'activeSegments',
     ];
 
-    public function segments()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<FashionSegment>
+     */
+    public function segments(): BelongsToMany
     {
         return $this->belongsToMany(FashionSegment::class, 'fashion_companies_segments')
             ->withPivot('is_active')
             ->withTimestamps();
     }
 
-    public function activeSegments()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<FashionSegment>
+     */
+    public function activeSegments(): BelongsToMany
     {
         return $this->belongsToMany(FashionSegment::class, 'fashion_companies_segments')
             ->wherePivot('is_active', true)
@@ -61,17 +69,26 @@ class FashionCompany extends Model
             ->withTimestamps();
     }
 
-    public function phones()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionPhone>
+     */
+    public function phones(): HasMany
     {
         return $this->hasMany(FashionPhone::class);
     }
 
-    public function socialMedia()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionSocialMedia>
+     */
+    public function socialMedia(): HasMany
     {
         return $this->hasMany(FashionSocialMedia::class);
     }
 
-    public function vacancies()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionVacancy>
+     */
+    public function vacancies(): HasMany
     {
         return $this->hasMany(FashionVacancy::class);
     }

@@ -32,7 +32,7 @@
                 "options": []
             },
             {
-                "action": "./sail art test --coverage-clover=coverage.xml",
+                "action": "sail art test --coverage-clover=coverage.xml",
                 "options": []
             }
         ]

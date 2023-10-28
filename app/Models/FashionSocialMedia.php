@@ -7,6 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FashionSocialMedia extends Model
@@ -23,7 +24,10 @@ class FashionSocialMedia extends Model
         'is_active',
     ];
 
-    public function fashionCompany()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<FashionCompany, FashionSocialMedia>
+     */
+    public function fashionCompany(): BelongsTo
     {
         return $this->belongsTo(FashionCompany::class);
     }

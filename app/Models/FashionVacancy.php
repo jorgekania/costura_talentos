@@ -7,6 +7,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FashionVacancy extends Model
@@ -32,17 +34,26 @@ class FashionVacancy extends Model
         'machines',
     ];
 
-    public function machines()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<FashionIndustrialMachines>
+     */
+    public function machines(): BelongsToMany
     {
         return $this->belongsToMany(FashionIndustrialMachines::class, 'fashion_machines_vacancies', 'fashion_vacancies_id', 'industrial_machines_id');
     }
 
-    public function company()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<FashionCompany, FashionVacancy>
+     */
+    public function company(): BelongsTo
     {
         return $this->belongsTo(FashionCompany::class);
     }
 
-    public function appliedProfessionals()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<FashionProfessional>
+     */
+    public function appliedProfessionals(): BelongsToMany
     {
         return $this->belongsToMany(FashionProfessional::class, 'fashion_professional_applieds', 'fashion_vacancies_id', 'fashion_professional_id')
             ->withPivot('is_active')

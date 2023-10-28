@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FashionIndustrialMachines extends Model
@@ -22,7 +23,10 @@ class FashionIndustrialMachines extends Model
 
     ];
 
-    public function machines()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<FashionMachinesVacancy, FashionIndustrialMachines>
+     */
+    public function machines(): BelongsTo
     {
         return $this->belongsTo(FashionMachinesVacancy::class);
     }

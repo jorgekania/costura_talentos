@@ -1,5 +1,19 @@
 {
     "cSpell.words": [
+        "ansi",
+        "autoload",
+        "autoloader",
+        "captainhook",
+        "dont",
+        "fakerphp",
+        "guzzlehttp",
+        "larastan",
+        "laravel",
+        "livewire",
+        "nunomaduro",
+        "pestphp",
+        "phpunit",
+        "spatie",
         "Uuids"
     ]
 }
