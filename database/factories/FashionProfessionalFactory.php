@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FashionProfessionalFactory extends Factory
 {
-
     public function definition(): array
     {
         return [
@@ -21,9 +22,9 @@ class FashionProfessionalFactory extends Factory
             'city'                 => fake()->city,
             'long_state'           => fake()->state,
             'short_state'          => fake()->stateAbbr,
-            'experience'           => fake()->realText(rand(100,200)),
+            'experience'           => fake()->realText(rand(100, 200)),
             'portifolio_url'       => fake()->url(),
-            'curriculum_url'       => fake()->url()
+            'curriculum_url'       => fake()->url(),
         ];
     }
 }

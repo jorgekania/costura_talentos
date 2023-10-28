@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
-use App\Models\FashionVacancy;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,9 +11,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FashionCompany extends Model
 {
-    use HasFactory, SoftDeletes, HasUuids;
+    use HasFactory;
+    use SoftDeletes;
+    use HasUuids;
 
-    protected $table = "fashion_companies";
+    protected $table = 'fashion_companies';
 
     protected $fillable = [
         'id',
@@ -72,5 +75,4 @@ class FashionCompany extends Model
     {
         return $this->hasMany(FashionVacancy::class);
     }
-
 }

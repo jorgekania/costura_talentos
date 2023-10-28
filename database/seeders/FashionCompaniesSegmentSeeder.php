@@ -1,16 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\FashionCompany;
 use App\Models\FashionSegment;
 use Illuminate\Database\Seeder;
-use App\Models\FashionCompaniesSegment;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class FashionCompaniesSegmentSeeder extends Seeder
 {
-
     public function run(): void
     {
         $companies = FashionCompany::all();

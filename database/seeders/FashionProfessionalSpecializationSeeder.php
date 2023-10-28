@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\FashionProfessionalSpecialization;
@@ -7,7 +9,6 @@ use Illuminate\Database\Seeder;
 
 class FashionProfessionalSpecializationSeeder extends Seeder
 {
-
     public function run(): void
     {
         $specializations = [
@@ -57,8 +58,7 @@ class FashionProfessionalSpecializationSeeder extends Seeder
             ],
             [
                 'specialization' => 'Modelista',
-                'description'    => 'profissão voltada à confecção de moldes para roupas e calçados e que cada vez mais, seus profissionais fazem uso de ferramentas tecnológicas para o desempenho de suas funções.']
-            ,
+                'description'    => 'profissão voltada à confecção de moldes para roupas e calçados e que cada vez mais, seus profissionais fazem uso de ferramentas tecnológicas para o desempenho de suas funções.'],
             [
                 'specialization' => 'Desenhista têxtil',
                 'description'    => 'as pessoas que ocupam essa atividade profissional fazem projetos de estamparia para roupas e acessórios a partir das pesquisas de tendências ou pedidos guiados de clientes.',
@@ -199,6 +199,5 @@ class FashionProfessionalSpecializationSeeder extends Seeder
         foreach ($specializations as $specialization) {
             FashionProfessionalSpecialization::updateOrCreate($specialization);
         }
-
     }
 }
