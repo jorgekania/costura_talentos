@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\FormOfRemuneration;
+use App\Enums\PreferToWork;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -28,6 +30,10 @@ class FashionVacancy extends Model
         'activities_and_responsibilities',
         'vacancy_requirements',
         'is_active',
+    ];
+
+    protected $casts = [
+        'work_where' => FormOfRemuneration::class
     ];
 
     protected $with = [

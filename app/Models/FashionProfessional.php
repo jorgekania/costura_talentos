@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\HiringRegime;
+use App\Enums\PreferToWork;
+use App\Enums\FormOfRemuneration;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FashionProfessional extends Model
 {
@@ -39,6 +42,12 @@ class FashionProfessional extends Model
         'form_of_remuneration',
         'remuneration_value',
         'is_active',
+    ];
+
+    protected $casts = [
+        'prefer_to_work_where' => PreferToWork::class,
+        'hiring_regime'=> HiringRegime::class,
+        'form_of_remuneration'=> FormOfRemuneration::class,
     ];
 
     /**

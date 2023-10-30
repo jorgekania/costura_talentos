@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Enums\RegistrationType;
 use App\Models\FashionCompany;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -15,6 +16,7 @@ class FashionSocialMediaFactory extends Factory
             'fashion_company_id' => FashionCompany::all()->random()->id,
             'name_social_media'  => fake()->userName,
             'social_media_url'   => fake()->domainName(),
+            'professional_or_company' => RegistrationType::getRandomEnumValue()
         ];
     }
 }

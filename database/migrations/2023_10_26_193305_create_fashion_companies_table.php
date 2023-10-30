@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
+use App\Enums\CompanySize;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration {
+return new class() extends Migration
+{
     public function up(): void
     {
         Schema::create('fashion_companies', function (Blueprint $table) {
@@ -23,7 +25,7 @@ return new class() extends Migration {
             $table->string('city');
             $table->string('long_state');
             $table->string('short_state', 2);
-            $table->string('company_size');
+            $table->string('company_size')->default('BIG');
             $table->text('description');
             $table->string('website')->nullable();
             $table->boolean('is_active')->default(true);

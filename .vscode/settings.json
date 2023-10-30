@@ -3,6 +3,8 @@
         "costuratalentos",
         "faccionistas",
         "laravel",
-        "tailwindcss"
-    ]
+        "tailwindcss",
+        "Uuids"
+    ],
+    "php.validate.executablePath": "usr/bin/php",
 }
