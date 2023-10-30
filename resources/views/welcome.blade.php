@@ -16,8 +16,7 @@
 </head>
 
 <body class="antialiased">
-    <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-gray-100">
+    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-gray-100">
         <h1 class="text-5xl">Teste Docker WSL2</h1>
     </div>
 </body>
