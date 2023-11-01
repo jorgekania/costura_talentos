@@ -11,14 +11,16 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-    @vite('resources/css/app.css')
+    @livewireStyles
 
 </head>
 
 <body class="antialiased">
     <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-gray-100">
-        <h1 class="text-5xl">Teste Docker WSL2</h1>
+        {{ $slot }}
     </div>
+
+    @livewireScripts
 </body>
 
 </html>
