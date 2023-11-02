@@ -12,13 +12,12 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     @livewireStyles
-
+    @vite('resources/css/app.css')
 </head>
 
-<body class="antialiased">
-    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-gray-100">
-        {{ $slot }}
-    </div>
+<body class="antialiased p-5">
+
+    {{ $slot }}
 
     @livewireScripts
 </body>

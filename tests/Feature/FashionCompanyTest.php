@@ -22,7 +22,7 @@ class FashionCompanyTest extends TestCase
         $response->assertStatus(200);
 
         foreach ($fashionCompanies as $fashionCompany) {
-            $response->assertSee($fashionCompany->name);
+            $response->assertSee($fashionCompany->corporate_reason);
         }
     }
 
