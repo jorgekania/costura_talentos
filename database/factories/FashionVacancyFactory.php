@@ -15,6 +15,7 @@ class FashionVacancyFactory extends Factory
     public function definition(): array
     {
         return [
+            'title' => fake()->sentence(3),
             'fashion_company_id'              => FashionCompany::all()->random()->id,
             'specializations_id'              => FashionProfessionalSpecialization::all()->random()->id,
             'activities_and_responsibilities' => fake()->sentence(5),

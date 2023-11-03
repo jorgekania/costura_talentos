@@ -21,6 +21,7 @@ class FashionVacancy extends Model
 
     protected $fillable = [
         'id',
+        'title',
         'fashion_company_id',
         'specializations_id',
         'time_experience',
