@@ -11,6 +11,6 @@ class FashionPhoneSeeder extends Seeder
 {
     public function run(): void
     {
-        FashionPhone::factory(10)->create();
+        FashionPhone::factory(20)->create();
     }
 }

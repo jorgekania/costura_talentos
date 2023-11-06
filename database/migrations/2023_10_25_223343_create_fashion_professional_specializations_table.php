@@ -12,6 +12,7 @@ return new class() extends Migration {
         Schema::create('fashion_professional_specializations', function (Blueprint $table) {
             $table->foreignUuid('id')->primary();
             $table->string('specialization');
+            $table->string('specialization_slug')->unique();
             $table->text('description');
             $table->boolean('is_active')->default(true);
             $table->softDeletes();

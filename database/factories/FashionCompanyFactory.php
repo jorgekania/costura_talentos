@@ -14,11 +14,20 @@ class FashionCompanyFactory extends Factory
 {
     public function definition(): array
     {
+        $arrLogos = [
+            'company_logos/company_1.jpg',
+            'company_logos/company_2.png',
+            'company_logos/company_3.webp',
+            'company_logos/company_4.png',
+        ];
+
+        $key = array_rand($arrLogos);
+
         return [
             'corporate_reason' => fake()->company,
             'email'            => fake()->email,
             'password'         => bcrypt('password'),
-            'logo'             => 'company_logos/corporate-company.png',
+            'logo'             => $arrLogos[$key],
             'zip_code'         => fake()->postcode,
             'address'          => fake()->streetName(),
             'number'           => fake()->buildingNumber,

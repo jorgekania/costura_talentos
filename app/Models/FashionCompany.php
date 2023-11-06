@@ -95,6 +95,6 @@ class FashionCompany extends Model
      */
     public function vacancies(): HasMany
     {
-        return $this->hasMany(FashionVacancy::class);
+        return $this->hasMany(FashionVacancy::class, 'fashion_company_id', 'id');
     }
 }

@@ -15,9 +15,21 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="antialiased p-5">
+<body class="antialiased">
 
-    {{ $slot }}
+    <div class="p-5 mx-auto xl:max-w-screen-xl">
+        <section id="header">
+            @include('components.header')
+        </section>
+
+        <section id="content">
+            @yield('content')
+        </section>
+
+        <section id="footer" class="bg-base py-16 mt-20 justify-center">
+            @include('components.footer')
+        </section>
+    </div>
 
     @livewireScripts
 </body>

@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Helpers\MyNumbers;
+use App\Helpers\MyDateTime;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -184,7 +186,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'MyNumbers' => MyNumbers::class,
+        'MyDateTime' => MyDateTime::class,
     ])->toArray(),
 
 ];

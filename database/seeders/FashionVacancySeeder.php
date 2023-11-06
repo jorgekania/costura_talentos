@@ -11,6 +11,6 @@ class FashionVacancySeeder extends Seeder
 {
     public function run(): void
     {
-        FashionVacancy::factory(10)->create();
+        FashionVacancy::factory(50)->create();
     }
 }

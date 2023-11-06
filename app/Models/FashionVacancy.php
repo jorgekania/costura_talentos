@@ -37,10 +37,6 @@ class FashionVacancy extends Model
         'work_where' => FormOfRemuneration::class
     ];
 
-    protected $with = [
-        'machines',
-    ];
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<FashionIndustrialMachines>
      */
@@ -50,11 +46,19 @@ class FashionVacancy extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<FashionProfessionalSpecialization, FashionVacancy>
+     */
+    public function specialization(): belongsTo
+    {
+        return $this->belongsTo(FashionProfessionalSpecialization::class, 'specializations_id', 'id');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<FashionCompany, FashionVacancy>
      */
     public function company(): BelongsTo
     {
-        return $this->belongsTo(FashionCompany::class);
+        return $this->belongsTo(FashionCompany::class, 'fashion_company_id', 'id');
     }
 
     /**

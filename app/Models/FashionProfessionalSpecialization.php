@@ -22,4 +22,12 @@ class FashionProfessionalSpecialization extends Model
         'description',
         'is_active',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany<FashionVacancy, FashionProfessionalSpecialization>
+     */
+    public function vacancies(): hasMany
+    {
+        return $this->hasMany(FashionVacancy::class, 'specializations_id', 'id');
+    }
 }
