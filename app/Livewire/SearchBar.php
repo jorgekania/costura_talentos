@@ -25,7 +25,7 @@ class SearchBar extends Component
             return redirect()->route('vagas');
         } else {
             $specialization = $this->specializations[$this->selectedSpecialization];
-            $routeName = 'vacancies-specialization';
+            $routeName = 'vacancies';
             return redirect()->route($routeName, Str::slug($specialization));
         }
     }

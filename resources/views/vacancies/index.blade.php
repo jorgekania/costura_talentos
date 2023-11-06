@@ -10,7 +10,15 @@
             <h2 class="text-lg font-semibold mb-5 text-primary-blue">Valor Remuneração</h2>
         </div>
         <div class="w-3/4">
-            <h1 class="text-2xl font-bold mb-5 text-primary-blue">649426 vagas de emprego em todo o Brasil</h1>
+            <h1 class="text-2xl font-bold mb-5 text-primary-blue">
+                @if ($vacancies->total() == 0)
+                    Nenhuma vaga disponivel no momento!
+                @elseif (request()->segment(1) === 'vagas')
+                    {{ $vacancies->total() }} vagas em todas as áreas!
+                @else
+                    {{ $vacancies->total() }} vagas para {{ $vacancies[0]->specialization->specialization }}
+                @endif
+            </h1>
 
             @foreach ($vacancies as $vacancie)
                 @php
@@ -21,7 +29,8 @@
                         $publisherString = ' em: ' . MyDateTime::formatDate($vacancie->created_at, 'd/m/Y');
                     }
                 @endphp
-                <a href="" class="flex border-t border-primary-blue hover:bg-base cursor-pointer p-5">
+                <a href="{{ route('vacancy', [Str::slug($vacancie->title), $vacancie->id]) }}"
+                    class="flex border-t border-primary-blue hover:bg-base cursor-pointer p-5">
                     <div class="w-1/4 mr-5">
                         <img src="{{ Storage::url($vacancie->company->logo) }}" alt="">
                     </div>
@@ -50,12 +59,14 @@
                                 class="font-semibold text-sm mr-2 text-primary-blue">Requerimentos:</span>{{ Str::limit($vacancie->activities_and_responsibilities, 100, '...') }}
                         </p>
 
-                        <p class="font-semibold text-sm text-white text-center p-2 rounded-full  bg-primary-orange w-1/3">
+                        <p
+                            class="font-semibold text-sm text-white text-center p-2 mt-3 rounded-full  bg-primary-orange w-1/3">
                             Publicada{{ $publisherString }}</p>
 
                     </div>
                 </a>
             @endforeach
+            @include('components.paginate')
         </div>
     </div>
 @endsection
