@@ -6,7 +6,7 @@
         <div class="flex w-1/2 justify-end">
             <ul class="flex w-full h-full items-center justify-between">
                 <li class="font-bold text-primary-blue active:text-secondary-blue hover:text-secondary-blue"><a
-                        href="/">VAGAS</a></li>
+                        href="{{ route('vagas') }}">VAGAS</a></li>
                 <li class="font-bold text-primary-blue active:text-secondary-blue hover:text-secondary-blue"><a
                         href="/">SOU EMPRESA</a></li>
                 <li class="font-bold text-primary-blue active:text-secondary-blue hover:text-secondary-blue"><a

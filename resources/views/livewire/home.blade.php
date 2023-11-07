@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-full">
         <section id="latest-vacancies" class="mt-8 py-20 justify-center border-b border-primary-orange">
-            <x-latest-vacancies />
+            <x-latest-vacancies :latestVacancies="$latestVacancies" />
         </section>
         <section id="differences" class="mt-8 py-14 justify-center">
             <x-differences />
