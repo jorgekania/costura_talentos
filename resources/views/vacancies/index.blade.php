@@ -10,7 +10,7 @@
                 @if ($vacancies->total() == 0)
                     Nenhuma vaga disponivel no momento!
                 @elseif (request()->segment(1) === 'vagas')
-                    {{ $vacancies->total() }} vagas em todas as áreas!
+                    {{ $vacancies->total() }} vagas em todas as áreas da moda!
                 @else
                     {{ $vacancies->total() }} vagas para {{ $vacancies[0]->specialization->specialization }}
                 @endif
