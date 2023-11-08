@@ -56,6 +56,9 @@
                     class="text-primary-blue font-semibold hover:text-secondary-blue px-20 border-r border-primary-blue">Sou
                     Empresa</a>
             </li>
+            <li><a href="#"
+                class="text-primary-blue font-semibold hover:text-secondary-blue px-20 border-r border-primary-blue">Blog</a>
+        </li>
             <li><a href="#" class="text-primary-blue font-semibold hover:text-secondary-blue px-20">Contato</a>
             </li>
         </ul>

@@ -1,6 +1,7 @@
 <div>
     <nav class="flex w-full h-16 items-start justify-between">
-        <a href="/" title="Constura Talentos" class="flex w-64 h-full justify-center items-center bg-cover bg-center" style="background-image: url({{ Storage::url('global/logo-costura-talentos_h_color.png') }})">
+        <a href="/" title="Constura Talentos" class="flex w-64 h-full justify-center items-center bg-cover bg-center"
+            style="background-image: url({{ Storage::url('global/logo-costura-talentos_h_color.png') }})">
 
         </a>
         <div class="flex w-1/2 justify-end">
@@ -9,6 +10,8 @@
                         href="{{ route('vagas') }}">VAGAS</a></li>
                 <li class="font-bold text-primary-blue active:text-secondary-blue hover:text-secondary-blue"><a
                         href="/">SOU EMPRESA</a></li>
+                <li class="font-bold text-primary-blue active:text-secondary-blue hover:text-secondary-blue"><a
+                        href="/">BLOG</a></li>
                 <li class="font-bold text-primary-blue active:text-secondary-blue hover:text-secondary-blue"><a
                         href="/">CONTATO</a></li>
                 <ul class="flex h-full items-center justify-between">
