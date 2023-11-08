@@ -2,12 +2,7 @@
 
 <h2 class="text-lg font-semibold mb-2 text-primary-blue">Cidade/Estado</h2>
 <div class="w-full bg-white  border rounded-md border-secondary-blue pr-2 mb-5">
-    <select name="filter-city" id="filter-city"
-        class="w-full p-2 rounded-md text-primary-orange bg-transparent italic focus:outline-none">
-        @foreach ($loadFilterCity as $cities)
-            <option value="{{ $cities }}">{{ $cities }}</option>
-        @endforeach
-    </select>
+    @livewire('filter-by-city', ['loadFilterCity'=> $loadFilterCity])
 </div>
 
 <h2 class="text-lg font-semibold mb-2 text-primary-blue">Regime de trabalho</h2>
