@@ -8,3 +8,15 @@ input:checked + div {
   input:checked + div svg {
     @apply block;
   }
+
+
+/* Estilo para TomSelect */
+.item {
+    background-color: #fa972f !important;
+    color: #FFFFFF !important;
+    border-radius: 5px;
+    padding: 4px !important;
+}
+.option {
+    color: #fa972f !important;
+}

@@ -40,7 +40,7 @@ class FashionVacancy extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<FashionIndustrialMachines>
      */
-    public function machines(): BelongsToMany
+    public function industrialMachines(): BelongsToMany
     {
         return $this->belongsToMany(FashionIndustrialMachines::class, 'fashion_machines_vacancies', 'fashion_vacancies_id', 'industrial_machines_id');
     }

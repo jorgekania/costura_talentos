@@ -28,7 +28,7 @@
         @endforeach
 
     </div>
-    <a href="{{ route('vagas') }}"
+    <a href="{{ route('vacancies') }}"
         class="text-md bg-green-600 hover:bg-green-500 font-bold text-white py-4 px-6 mt-10 -mb-5 rounded-md my-5 block w-1/5 m-auto text-center">VER
         TODAS AS VAGAS</a>
 </div>

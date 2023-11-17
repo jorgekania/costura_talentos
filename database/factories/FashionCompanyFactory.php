@@ -15,10 +15,13 @@ class FashionCompanyFactory extends Factory
     public function definition(): array
     {
         $arrLogos = [
-            'company_logos/company_1.jpg',
-            'company_logos/company_2.png',
-            'company_logos/company_3.webp',
-            'company_logos/company_4.png',
+            'company_logos/company_logo_1.png',
+            'company_logos/company_logo_2.webp',
+            'company_logos/company_logo_3.webp',
+            'company_logos/company_logo_4.png',
+            'company_logos/company_logo_5.png',
+            'company_logos/company_logo_6.jpeg',
+            'company_logos/company_logo_7.jpg',
         ];
 
         $key = array_rand($arrLogos);
