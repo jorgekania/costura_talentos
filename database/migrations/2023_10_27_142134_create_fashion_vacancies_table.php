@@ -26,6 +26,7 @@ return new class() extends Migration
             $table->string('hiring_regime')->default('CLT');
             $table->text('activities_and_responsibilities');
             $table->text('vacancy_requirements');
+            $table->text('the_company_offers');
             $table->boolean('is_active')->default(true);
 
             $table->softDeletes();

@@ -24,7 +24,7 @@ class MyDateTime
      * @param string|null $endDate | "Y-m-d"
      * @return array
      */
-    public static function diffInYearsMonthsDays(string $startDate, string | null $endDate = null)
+    public static function diffInYearsMonthsDays(Carbon $startDate, Carbon | null $endDate = null)
     {
 
         $start = Carbon::parse($startDate);
@@ -34,7 +34,7 @@ class MyDateTime
         if ($diff->m > 0) {
             $months += $diff->m;
         }
-        
+
         $days = $diff->d;
         if ($diff->y > 0) {
             $months += ($diff->y * 12);

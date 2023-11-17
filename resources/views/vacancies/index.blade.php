@@ -17,21 +17,7 @@
             </h1>
 
             @foreach ($vacancies as $vacancie)
-                @php
-                    $publisher = MyDateTime::diffInYearsMonthsDays(now(), $vacancie->created_at);
-
-                    if ($publisher['minutes'] == 0) {
-                        $publisherString = ' agora ';
-                    } elseif ($publisher['hours'] == 0) {
-                        $publisherString = ' à ' . $publisher['minutes'] . ' minutos';
-                    } elseif ($publisher['days'] == 0) {
-                        $publisherString = ' à ' . $publisher['hours'] . ' horas';
-                    } else {
-                        $publisherString = ' em ' . MyDateTime::formatDate($vacancie->created_at, 'd/m/Y');
-                    }
-                @endphp
-
-                <a href="{{ route('vacancies', [Str::slug($vacancie->title), $vacancie->id]) }}"
+                <a href="{{ route('vacancy', [Str::slug($vacancie->title), $vacancie->id]) }}"
                     class="flex border-t border-primary-blue hover:bg-base cursor-pointer p-5">
                     <div class="w-1/4 mr-5">
                         <img src="{{ Storage::url($vacancie->company->logo) }}" alt="">
@@ -50,7 +36,8 @@
                                 <p>{{ $vacancie->company->corporate_reason }}</p>
                                 <p>{{ $vacancie->specialization->specialization }}</p>
                                 <p>{{ $vacancie->company->city }} / {{ $vacancie->company->short_state }}</p>
-                                <p>{{ MyNumbers::formatCurrency($vacancie->remuneration_value, 'pt_BR', 'R$') }}</p>
+                                <p>{{ $vacancie->remuneration_value === 0 ? 'a combinar' : MyNumbers::formatCurrency($vacancie->remuneration_value, 'pt_BR', 'R$') }}
+                                </p>
                                 <p>{{ Str::limit($vacancie->activities_and_responsibilities, 100, '...') }}</p>
                             </div>
                         </div>
@@ -62,7 +49,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                Publicada{{ $publisherString }}
+                                Publicada{{ $vacancie->published_time }}
                             </p>
 
                             <p
