@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="flex mt-10">
+        <!-- SIMULAR VACANCIES -->
         <div class="w-1/3 mr-10 py-3">
-
             <h1
                 class="text-xl font-bold text-primary-blue items-center mb-4 bg-base p-3 rounded-md border-l-8 border-primary-orange">
                 Vagas similares:</h1>
@@ -36,6 +36,8 @@
             @endforeach
 
         </div>
+
+        <!-- VACANCy -->
         <div class="w-2/3 py-3">
             <div class="flex justify-between items-center mb-4 bg-base p-3 rounded-md border-l-8 border-primary-orange">
                 <p class="w-2/3 text-xl text-primary-blue font-bold">{{ $vacancy->title }}</p>
@@ -68,6 +70,9 @@
                             </div>
                             <div class="flex">
                                 <span class="font-semibold mr-2">Telefone(s):</span>
+                                @if (count($vacancy->company->phones) === 0)
+                                    telefone não informado
+                                @endif
                                 @foreach ($vacancy->company->phones as $phones)
                                     <span class="flex text-xs items-center mr-1 py-1 px-2 bg-gray-200 rounded-full">
                                         @if ($phones->phone_type->name === 'WHATSAPP')
@@ -127,7 +132,8 @@
                                 class="lowercase">{{ $vacancy->work_where }}</span>
                         </p>
                         <p class="mb-1"><span class="font-semibold">Remuneração
-                                Valor:</span>{{ $vacancy->remuneration_value === 0 ? ' a combinar' : MyNumbers::formatCurrency($vacancy->remuneration_value, 'pt_BR', 'R$') }}
+                                Valor:
+                            </span>{{ $vacancy->remuneration_value === 0 ? ' a combinar' : MyNumbers::formatCurrency($vacancy->remuneration_value, 'pt_BR', 'R$') }}
                         </p>
                         <p class="mb-1"><span class="font-semibold">Mínimo de Experiência:</span>
                             {{ $vacancy->time_experience == 0 ? 'sem experiência' : $vacancy->time_experience }}</p>
@@ -221,6 +227,5 @@
 
             </div>
         </div>
-
     </div>
 @endsection

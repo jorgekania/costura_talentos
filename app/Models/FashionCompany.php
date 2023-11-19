@@ -115,7 +115,7 @@ class FashionCompany extends Model
             $this->number .
             ", " .
             $this->neighborhood .
-            "- " .
+            " - " .
             $this->city .
             "/" .
             $this->short_state;

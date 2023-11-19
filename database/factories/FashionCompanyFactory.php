@@ -32,14 +32,14 @@ class FashionCompanyFactory extends Factory
             'password'         => bcrypt('password'),
             'logo'             => $arrLogos[$key],
             'zip_code'         => fake()->postcode,
-            'address'          => fake()->streetName(),
+            'address'          => fake()->streetName,
             'number'           => fake()->buildingNumber,
-            'neighborhood'     => fake()->sentence(2),
+            'neighborhood'     => fake()->streetName,
             'city'             => fake()->city,
             'long_state'       => fake()->state,
             'short_state'      => fake()->stateAbbr,
             'company_size'     => CompanySize::getRandomEnumValue(),
-            'description'      => fake()->sentence(2),
+            'description'      => fake()->realText(500, 3),
             'website'          => fake()->domainName(),
         ];
     }

@@ -48,7 +48,7 @@
                     </a>
                 </div>
                 <div class="w-1/3 items-center inline-flex justify-end">
-                    <img src="{{ Storage::url('global/fashion_header.svg') }}" alt="">
+                    <img src="{{ Storage::url('global/fashion-header.png') }}" alt="">
                 </div>
             </div>
         @endif

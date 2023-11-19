@@ -7,23 +7,24 @@ class MyNumbers
     /**
      * Format a number as a currency string.
      *
-     * @param float  $number    The number to format as currency.
+     * @param float|int  $number    The number to format as currency.
      * @param string $prefix    The prefix to add before the number (e.g., currency symbol).
      * @param string $suffix    The suffix to add after the number (e.g., percentage symbol).
      *
      * @return string The formatted currency string.
      */
     public static function formatCurrency(
-        float $number,
+        float|int $number,
         string $locale = "en_US",
         string $prefix = "",
         string $suffix = ""
     ): string {
-        $formattedNumber = number_format($number, 2);
+        $isInt = is_int($number) ? $number / 100 : $number;
+        $formattedNumber = number_format($isInt, 2);
 
         // Format the number as currency using number_format()
         if ($locale == "pt_BR" || $locale == "Portuguese_Brazil.1252") {
-            $formattedNumber = number_format($number, 2, ",", ".");
+            $formattedNumber = number_format($isInt, 2, ",", ".");
         }
 
         // Add prefix, currency symbol, and suffix to the formatted number
