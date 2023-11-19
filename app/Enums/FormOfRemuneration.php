@@ -11,4 +11,5 @@ enum FormOfRemuneration: string
     case MONTH = 'MÊS';
     case DAY = 'DIA';
     case HOUR = 'HORA';
+    case DELIVERY = 'ENTREGA';
 }

@@ -4,7 +4,6 @@ namespace App\Helpers;
 
 class MyNumbers
 {
-
     /**
      * Format a number as a currency string.
      *
@@ -14,13 +13,17 @@ class MyNumbers
      *
      * @return string The formatted currency string.
      */
-    public static function formatCurrency(float $number, string $locale = 'en_US', string $prefix = '', string $suffix = ''): string
-    {
+    public static function formatCurrency(
+        float $number,
+        string $locale = "en_US",
+        string $prefix = "",
+        string $suffix = ""
+    ): string {
         $formattedNumber = number_format($number, 2);
 
         // Format the number as currency using number_format()
-        if ($locale == 'pt_BR' || $locale == 'Portuguese_Brazil.1252') {
-            $formattedNumber = number_format($number, 2, ',', '.');
+        if ($locale == "pt_BR" || $locale == "Portuguese_Brazil.1252") {
+            $formattedNumber = number_format($number, 2, ",", ".");
         }
 
         // Add prefix, currency symbol, and suffix to the formatted number
@@ -38,13 +41,13 @@ class MyNumbers
     public static function formatNumberAbbreviated(float $number): string
     {
         if ($number >= 1e12) {
-            return round($number / 1e12, 1) . 'T';
+            return round($number / 1e12, 1) . "T";
         } elseif ($number >= 1e9) {
-            return round($number / 1e9, 1) . 'B';
+            return round($number / 1e9, 1) . "B";
         } elseif ($number >= 1e6) {
-            return round($number / 1e6, 1) . 'M';
+            return round($number / 1e6, 1) . "M";
         } elseif ($number >= 1e3) {
-            return round($number / 1e3, 1) . 'K';
+            return round($number / 1e3, 1) . "K";
         }
 
         return (string) $number;
@@ -59,41 +62,151 @@ class MyNumbers
      *
      * @return string The word representation of the number.
      */
-    public static function convertToWords($value = 0, $bolDisplayCurrency = true, $bolFeminineWord = false)
-    {
-
+    public static function convertToWords(
+        $value = 0,
+        $bolDisplayCurrency = true,
+        $bolFeminineWord = false
+    ) {
         $value = self::removeNumberFormatting($value);
 
         $singular = null;
-        $plural   = null;
+        $plural = null;
 
         if ($bolDisplayCurrency) {
-            $singular = array("centavo", "real", "mil", "milhão", "bilhão", "trilhão", "quatrilhão");
-            $plural   = array("centavos", "reais", "mil", "milhões", "bilhões", "trilhões", "quatrilhões");
+            $singular = [
+                "centavo",
+                "real",
+                "mil",
+                "milhão",
+                "bilhão",
+                "trilhão",
+                "quatrilhão",
+            ];
+            $plural = [
+                "centavos",
+                "reais",
+                "mil",
+                "milhões",
+                "bilhões",
+                "trilhões",
+                "quatrilhões",
+            ];
         } else {
-            $singular = array("", "", "mil", "milhão", "bilhão", "trilhão", "quatrilhão");
-            $plural   = array("", "", "mil", "milhões", "bilhões", "trilhões", "quatrilhões");
+            $singular = [
+                "",
+                "",
+                "mil",
+                "milhão",
+                "bilhão",
+                "trilhão",
+                "quatrilhão",
+            ];
+            $plural = [
+                "",
+                "",
+                "mil",
+                "milhões",
+                "bilhões",
+                "trilhões",
+                "quatrilhões",
+            ];
         }
 
-        $c   = array("", "cem", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos");
-        $d   = array("", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa");
-        $d10 = array("dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove");
-        $u   = array("", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove");
+        $c = [
+            "",
+            "cem",
+            "duzentos",
+            "trezentos",
+            "quatrocentos",
+            "quinhentos",
+            "seiscentos",
+            "setecentos",
+            "oitocentos",
+            "novecentos",
+        ];
+        $d = [
+            "",
+            "dez",
+            "vinte",
+            "trinta",
+            "quarenta",
+            "cinquenta",
+            "sessenta",
+            "setenta",
+            "oitenta",
+            "noventa",
+        ];
+        $d10 = [
+            "dez",
+            "onze",
+            "doze",
+            "treze",
+            "quatorze",
+            "quinze",
+            "dezesseis",
+            "dezessete",
+            "dezoito",
+            "dezenove",
+        ];
+        $u = [
+            "",
+            "um",
+            "dois",
+            "três",
+            "quatro",
+            "cinco",
+            "seis",
+            "sete",
+            "oito",
+            "nove",
+        ];
 
         if ($bolFeminineWord) {
-
             if ($value == 1) {
-                $u = array("", "uma", "duas", "três", "quatro", "cinco", "seis", "sete", "oito", "nove");
+                $u = [
+                    "",
+                    "uma",
+                    "duas",
+                    "três",
+                    "quatro",
+                    "cinco",
+                    "seis",
+                    "sete",
+                    "oito",
+                    "nove",
+                ];
             } else {
-                $u = array("", "um", "duas", "três", "quatro", "cinco", "seis", "sete", "oito", "nove");
+                $u = [
+                    "",
+                    "um",
+                    "duas",
+                    "três",
+                    "quatro",
+                    "cinco",
+                    "seis",
+                    "sete",
+                    "oito",
+                    "nove",
+                ];
             }
 
-            $c = array("", "cem", "duzentas", "trezentas", "quatrocentas", "quinhentas", "seiscentas", "setecentas", "oitocentas", "novecentas");
+            $c = [
+                "",
+                "cem",
+                "duzentas",
+                "trezentas",
+                "quatrocentas",
+                "quinhentas",
+                "seiscentas",
+                "setecentas",
+                "oitocentas",
+                "novecentas",
+            ];
         }
 
         $z = 0;
 
-        $value   = number_format($value, 2, ".", ".");
+        $value = number_format($value, 2, ".", ".");
         $integer = explode(".", $value);
 
         for ($i = 0; $i < count($integer); $i++) {
@@ -103,15 +216,25 @@ class MyNumbers
         }
 
         // $fim identifica onde que deve se dar junção de centenas por "e" ou por "," ;)
-        $rt  = null;
+        $rt = null;
         $fim = count($integer) - ($integer[count($integer) - 1] > 0 ? 1 : 2);
         for ($i = 0; $i < count($integer); $i++) {
             $value = $integer[$i];
-            $rc    = (($value > 100) && ($value < 200)) ? "cento" : $c[$value[0]];
-            $rd    = ($value[1] < 2) ? "" : $d[$value[1]];
-            $ru    = ($value > 0) ? (($value[1] == 1) ? $d10[$value[2]] : $u[$value[2]]) : "";
+            $rc = $value > 100 && $value < 200 ? "cento" : $c[$value[0]];
+            $rd = $value[1] < 2 ? "" : $d[$value[1]];
+            $ru =
+                $value > 0
+                    ? ($value[1] == 1
+                        ? $d10[$value[2]]
+                        : $u[$value[2]])
+                    : "";
 
-            $r = $rc . (($rc && ($rd || $ru)) ? " e " : "") . $rd . (($rd && $ru) ? " e " : "") . $ru;
+            $r =
+                $rc .
+                ($rc && ($rd || $ru) ? " e " : "") .
+                $rd .
+                ($rd && $ru ? " e " : "") .
+                $ru;
             $t = count($integer) - 1 - $i;
             $r .= $r ? " " . ($value > 1 ? $plural[$t] : $singular[$t]) : "";
             if ($value == "000") {
@@ -120,18 +243,25 @@ class MyNumbers
                 $z--;
             }
 
-            if (($t == 1) && ($z > 0) && ($integer[0] > 0)) {
-                $r .= (($z > 1) ? " de " : "") . $plural[$t];
+            if ($t == 1 && $z > 0 && $integer[0] > 0) {
+                $r .= ($z > 1 ? " de " : "") . $plural[$t];
             }
 
             if ($r) {
-                $rt = $rt . ((($i > 0) && ($i <= $fim) && ($integer[0] > 0) && ($z < 1)) ? (($i < $fim) ? ", " : " e ") : " ") . $r;
+                $rt =
+                    $rt .
+                    ($i > 0 && $i <= $fim && $integer[0] > 0 && $z < 1
+                        ? ($i < $fim
+                            ? ", "
+                            : " e ")
+                        : " ") .
+                    $r;
             }
         }
 
         $rt = mb_substr($rt, 1);
 
-        return ($rt ? trim($rt) : "zero");
+        return $rt ? trim($rt) : "zero";
     }
 
     /**
@@ -141,24 +271,23 @@ class MyNumbers
      */
     public static function removeNumberFormatting(string $strNumber)
     {
-
-        $strNumber = trim(str_replace("R$", '', $strNumber));
+        $strNumber = trim(str_replace("R$", "", $strNumber));
 
         $vetComma = explode(",", $strNumber);
         if (count($vetComma) == 1) {
-            $accents = array(".");
-            $result  = str_replace($accents, "", $strNumber);
+            $accents = ["."];
+            $result = str_replace($accents, "", $strNumber);
             return $result;
-        } else if (count($vetComma) != 2) {
+        } elseif (count($vetComma) != 2) {
             return $strNumber;
         }
 
-        $strNumber  = $vetComma[0];
+        $strNumber = $vetComma[0];
         $strDecimal = mb_substr($vetComma[1], 0, 2);
 
-        $accents = array(".");
-        $result  = str_replace($accents, "", $strNumber);
-        $result  = $result . "." . $strDecimal;
+        $accents = ["."];
+        $result = str_replace($accents, "", $strNumber);
+        $result = $result . "." . $strDecimal;
 
         return $result;
     }
@@ -171,22 +300,26 @@ class MyNumbers
      * @param string $format
      * @param string $useSiPrefix
      */
-    public static function convertNumbersToBytes(float $bytes, string $forceUnit = null, string $format = '%01.2f %s', bool $useSiPrefix = true)
-    {
+    public static function convertNumbersToBytes(
+        float $bytes,
+        string $forceUnit = null,
+        string $format = "%01.2f %s",
+        bool $useSiPrefix = true
+    ) {
         $forceUnit = false;
         if (!is_null($forceUnit)) {
-            $forceUnit = strpos($forceUnit, 'i');
+            $forceUnit = strpos($forceUnit, "i");
         }
         if (!$useSiPrefix || $forceUnit) {
-            $units = array('B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB');
-            $mod   = 1024;
+            $units = ["B", "KiB", "MiB", "GiB", "TiB", "PiB"];
+            $mod = 1024;
         } else {
-            $units = array('B', 'kB', 'MB', 'GB', 'TB', 'PB');
-            $mod   = 1000;
+            $units = ["B", "kB", "MB", "GB", "TB", "PB"];
+            $mod = 1000;
         }
 
         if (($power = array_search((string) $forceUnit, $units)) === false) {
-            $power = ($bytes > 0) ? floor(log($bytes, $mod)) : 0;
+            $power = $bytes > 0 ? floor(log($bytes, $mod)) : 0;
         }
         return sprintf($format, $bytes / pow($mod, $power), $units[$power]);
     }
@@ -200,6 +333,40 @@ class MyNumbers
      */
     public static function onlyNumber(string $number = null)
     {
-        return preg_replace('/[^0-9]/', '', $number);
+        return preg_replace("/[^0-9]/", "", $number);
+    }
+
+    /**
+     * Format an integer for phone mask
+     *
+     * @param string $number
+     * @return string
+     */
+    public static function formatPhoneNumber(string $number): string
+    {
+        $number = self::onlyNumber($number);
+
+        $length = strlen($number);
+
+        if ($length == 11) {
+            $formatted = sprintf(
+                "(%s) %s %s-%s",
+                substr($number, 0, 2),
+                substr($number, 2, 1),
+                substr($number, 3, 4),
+                substr($number, 7)
+            );
+        } elseif ($length == 10) {
+            $formatted = sprintf(
+                "(%s) %s-%s",
+                substr($number, 0, 2),
+                substr($number, 2, 4),
+                substr($number, 6)
+            );
+        } else {
+            $formatted = "Invalid phone number";
+        }
+
+        return $formatted;
     }
 }

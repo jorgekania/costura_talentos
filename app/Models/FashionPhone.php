@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\PhoneType;
+use App\Helpers\MyNumbers;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,16 +19,16 @@ class FashionPhone extends Model
     use HasUuids;
 
     protected $fillable = [
-        'id',
-        'fashion_company_id',
-        'phone_type',
-        'phone_number',
-        'is_main',
-        'is_active',
+        "id",
+        "fashion_company_id",
+        "phone_type",
+        "phone_number",
+        "is_main",
+        "is_active",
     ];
 
     protected $casts = [
-        'phone_type' => PhoneType::class
+        "phone_type" => PhoneType::class,
     ];
 
     /**
@@ -36,5 +37,10 @@ class FashionPhone extends Model
     public function fashionCompanies(): BelongsTo
     {
         return $this->belongsTo(FashionCompany::class);
+    }
+
+    public function getFormattedPhoneNumberAttribute()
+    {
+        return MyNumbers::formatPhoneNumber($this->phone_number);
     }
 }

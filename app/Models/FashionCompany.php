@@ -18,39 +18,39 @@ class FashionCompany extends Model
     use SoftDeletes;
     use HasUuids;
 
-    protected $table = 'fashion_companies';
+    protected $table = "fashion_companies";
 
     protected $fillable = [
-        'id',
-        'corporate_reason',
-        'email',
-        'password',
-        'logo',
-        'zip_code',
-        'address',
-        'number',
-        'neighborhood',
-        'complement',
-        'city',
-        'long_state',
-        'short_state',
-        'fashion_segment',
-        'company_size',
-        'description',
-        'website',
-        'is_active',
+        "id",
+        "corporate_reason",
+        "email",
+        "password",
+        "logo",
+        "zip_code",
+        "address",
+        "number",
+        "neighborhood",
+        "complement",
+        "city",
+        "long_state",
+        "short_state",
+        "fashion_segment",
+        "company_size",
+        "description",
+        "website",
+        "is_active",
     ];
 
     protected $casts = [
-        'company_size' => CompanySize::class,
+        "company_size" => CompanySize::class,
     ];
 
     protected $with = [
-        'phones',
-        'socialMedia',
-        'vacancies',
-        'segments',
-        'activeSegments',
+        "phones",
+        "socialMedia",
+        "vacancies",
+        "segments",
+        "activeSegments",
     ];
 
     /**
@@ -58,8 +58,11 @@ class FashionCompany extends Model
      */
     public function segments(): BelongsToMany
     {
-        return $this->belongsToMany(FashionSegment::class, 'fashion_companies_segments')
-            ->withPivot('is_active')
+        return $this->belongsToMany(
+            FashionSegment::class,
+            "fashion_companies_segments"
+        )
+            ->withPivot("is_active")
             ->withTimestamps();
     }
 
@@ -68,9 +71,12 @@ class FashionCompany extends Model
      */
     public function activeSegments(): BelongsToMany
     {
-        return $this->belongsToMany(FashionSegment::class, 'fashion_companies_segments')
-            ->wherePivot('is_active', true)
-            ->withPivot('is_active')
+        return $this->belongsToMany(
+            FashionSegment::class,
+            "fashion_companies_segments"
+        )
+            ->wherePivot("is_active", true)
+            ->withPivot("is_active")
             ->withTimestamps();
     }
 
@@ -95,6 +101,34 @@ class FashionCompany extends Model
      */
     public function vacancies(): HasMany
     {
-        return $this->hasMany(FashionVacancy::class, 'fashion_company_id', 'id');
+        return $this->hasMany(
+            FashionVacancy::class,
+            "fashion_company_id",
+            "id"
+        );
+    }
+
+    public function getAddressCompanyAttribute()
+    {
+        return $this->address .
+            ", " .
+            $this->number .
+            ", " .
+            $this->neighborhood .
+            "- " .
+            $this->city .
+            "/" .
+            $this->short_state;
+    }
+
+    public function getUrlGoogleMapsAttribute()
+    {
+        $address = str_replace("/", "+-+", $this->address_company);
+        $formattedAddress = str_replace(" ", "+", $address);
+
+        $googleMapsUrl =
+            "https://www.google.com/maps/place/" . $formattedAddress;
+
+        return $googleMapsUrl;
     }
 }

@@ -10,5 +10,5 @@ enum HiringRegime: string
 
     case CLT = 'CLT';
     case PJ = 'PJ';
-    case NEGOTIABLE = 'NEGOCIÁVEL';
+    case FACCIONISTA = 'FACCIONISTA';
 }

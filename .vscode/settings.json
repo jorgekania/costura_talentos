@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "costuratalentos",
+        "FACCIONISTA",
         "faccionistas",
         "laravel",
         "livewire",
@@ -8,5 +9,5 @@
         "tailwindcss",
         "Uuids"
     ],
-    "php.validate.executablePath": "usr/bin/php",
+    "php.validate.executablePath": "usr/bin/php"
 }
