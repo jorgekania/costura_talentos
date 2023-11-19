@@ -17,18 +17,18 @@
                 <ul class="flex h-full items-center justify-between">
                     <li
                         class="text-md text-white font-bold px-3 py-2 mr-4 rounded-md bg-primary-blue hover:bg-secondary-blue hover:text-black">
-                        <a href="/">CADASTRE-SE</a>
+                        <a href="/register">CADASTRE-SE</a>
                     </li>
                     <li
                         class="text-md text-white font-bold px-3 py-2 rounded-md bg-primary-orange hover:bg-hover-orange">
-                        <a href="/">ENTRAR</a>
+                        <a href="{{ route('login') }}">ENTRAR</a>
                     </li>
                 </ul>
             </ul>
         </div>
     </nav>
     <div id="header" class="flex mt-8 justify-center">
-        @if (request()->segment(1) != 'vagas')
+        @if (request()->segment(1) != 'vagas' && request()->segment(1) != 'login')
             <div class="flex text-center items-center p-5 border-b border-secondary-blue">
                 <div class="w-2/3 mr-10">
                     <h1 class="text-3xl font-bold text-primary-blue">Simples, Prático e Rápido</h1>
