@@ -3,10 +3,11 @@
 declare(strict_types=1);
 
 use App\Livewire\Home;
-use App\Livewire\LoginCompany;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\FashionCompanyComponent;
+use App\Http\Controllers\Auth\Company\AuthCompany;
 use App\Http\Controllers\FashionVacanciesController;
+use App\Http\Controllers\Auth\Professional\AuthProfessional;
 
 Route::get("/", Home::class)->name("home");
 
@@ -32,5 +33,21 @@ Route::get("/vaga/{title}/{id}", [
     "vacancy",
 ])->name("vacancy");
 
-//Auth Routes
-Route::get("/login/company", LoginCompany::class)->name('login');
+//Professional Routes
+Route::controller(AuthProfessional::class)
+    ->name("professional")
+    ->prefix("professional")
+    ->group(function () {
+        Route::get("login", "login")->name(".login");
+        Route::get("register", "register")->name(".register");
+    });
+
+// Company Rotes
+Route::controller(AuthCompany::class)
+    ->name("company")
+    ->prefix("company")
+    ->group(function () {
+        Route::get("recruiter", "recruiter")->name(".recruiter");
+        Route::get("register", "register")->name(".register");
+        Route::get("login", "login")->name(".login");
+    });

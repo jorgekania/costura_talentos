@@ -49,10 +49,10 @@
     </div>
     <div class="flex justify-center items-center mt-10">
         <ul class="flex">
-            <li><a href="#"
+            <li><a href="{{ route('vacancies') }}"
                     class="text-primary-blue font-semibold hover:text-secondary-blue px-20 border-r border-primary-blue">Vagas</a>
             </li>
-            <li><a href="#"
+            <li><a href="{{ route('company.recruiter') }}"
                     class="text-primary-blue font-semibold hover:text-secondary-blue px-20 border-r border-primary-blue">Sou
                     Empresa</a>
             </li>

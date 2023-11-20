@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('components.header-banner')
     <div class="w-full">
         <section id="latest-vacancies" class="py-20 justify-center border-b border-primary-orange">
             <x-latest-vacancies :latestVacancies="$latestVacancies" />
