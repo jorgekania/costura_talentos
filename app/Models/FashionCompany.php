@@ -11,12 +11,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 
-class FashionCompany extends Model
+class FashionCompany extends Model implements Authenticatable
 {
     use HasFactory;
     use SoftDeletes;
     use HasUuids;
+    use AuthenticatableTrait;
 
     protected $table = "fashion_companies";
 
@@ -26,6 +29,7 @@ class FashionCompany extends Model
         "email",
         "password",
         "logo",
+        "provider",
         "zip_code",
         "address",
         "number",

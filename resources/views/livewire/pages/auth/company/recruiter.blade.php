@@ -10,7 +10,7 @@
                             Talentos</span> você encontra o profissional da moda certo para seu
                         negócio</p>
                     <a class="bg-primary-orange px-6 py-3 rounded-full text-lg text-white font-bold border border-white hover:bg-hover-orange hover:shadow-[0px_3px_8px_0.24px_#fa972f] uppercase"
-                        href="{{ route('company.register') }}">Anúncie Suas Vagas Grátis</a>
+                        href="{{ route('company.login') }}">Anúncie Suas Vagas Grátis</a>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
                 </h1>
                 <p class="text-xl font-light">Admitir novos colaboradores para sua empresa nunca foi tão simples, prático e
                     rápido!</p>
-                <a href="{{ route('company.register') }}"
+                <a href="{{ route('company.login') }}"
                     class="flex justify-center text-md bg-primary-orange hover:bg-hover-orange shadow shadow-gray-500 font-bold text-white py-4 px-6 mt-10 -mb-5 rounded-full my-5  m-auto text-center ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6 mr-3">

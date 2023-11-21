@@ -2,24 +2,57 @@
 
 namespace App\Http\Controllers\Auth\Company;
 
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Models\FashionCompany;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Services\AuthService;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Services\AuthSocialiteService;
 
 class AuthCompanyController extends Controller
 {
-    public function loginByForm()
+    public function index()
     {
+        if (Auth::guard("company")->check()) {
+            return view("livewire.pages.auth.company.dashboard");
+        }
+
         return view("livewire.pages.auth.company.login");
+    }
+
+    public function loginByForm(Request $request): RedirectResponse
+    {
+        $theCompanyExists = FashionCompany::where('email', $request->email)
+        ->whereNotNull('provider')
+        ->first();
+
+        if($theCompanyExists){
+
+            Auth::guard("company")->login($theCompanyExists);
+            return redirect()->route("company.dashboard");
+        }
+
+        $credentials = $request->only("email", "password");
+
+        if (Auth::guard("company")->attempt($credentials)) {
+            return redirect()->route("company.dashboard");
+        }
+
+        return back()->withErrors([
+            "email" => "Email e ou Senha informados são inválidas",
+        ]);
     }
 
     public function redirectToProvider($provider)
     {
-        return AuthService::redirectToProvider($provider);
+        return AuthSocialiteService::redirectToProvider($provider);
     }
 
     public function handleProviderCallback($provider)
     {
-        return AuthService::handleProviderCallback($provider);
+        return AuthSocialiteService::handleProviderCallback($provider);
     }
 
     public function register()
@@ -30,5 +63,11 @@ class AuthCompanyController extends Controller
     public function recruiter()
     {
         return view("livewire.pages.auth.company.recruiter");
+    }
+
+    public function logout()
+    {
+        Auth::guard("company")->logout();
+        return redirect()->route("home");
     }
 }

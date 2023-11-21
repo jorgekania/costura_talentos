@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth\Professional;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\FashionProfessional;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-use Laravel\Socialite\Facades\Socialite;
+use App\Services\AuthSocialiteService;
 
 class AuthProfessionalController extends Controller
 {
@@ -22,6 +23,18 @@ class AuthProfessionalController extends Controller
 
     public function loginByForm(Request $request): RedirectResponse
     {
+        $theProfessionalExists = FashionProfessional::where(
+            "email",
+            $request->email
+        )
+            ->whereNotNull("provider")
+            ->first();
+
+        if ($theProfessionalExists) {
+            Auth::guard("professional")->login($theProfessionalExists);
+            return redirect()->route("professional.dashboard");
+        }
+
         $credentials = $request->only("email", "password");
 
         if (Auth::guard("professional")->attempt($credentials)) {
@@ -35,37 +48,12 @@ class AuthProfessionalController extends Controller
 
     public function redirectToProvider($provider)
     {
-        return Socialite::driver($provider)->redirect();
+        return AuthSocialiteService::redirectToProvider($provider);
     }
 
     public function handleProviderCallback($provider)
     {
-        try {
-            $socialiteUser = Socialite::driver($provider)->user();
-
-            $professional = FashionProfessional::updateOrCreate(
-                [
-                    "email" => $socialiteUser->getEmail(),
-                ],
-                [
-                    "name" => $socialiteUser->getName(),
-                    "avatar" => $socialiteUser->getAvatar(),
-                    "provider" => $provider,
-                ]
-            );
-
-            Auth::guard("professional")->login($professional);
-
-            return redirect()->route("professional.dashboard");
-        } catch (\Exception $e) {
-            return back()->withErrors([
-                "error" =>
-                    "Ocorreu um erro durante o login com o provedor " .
-                    ucfirst($provider) .
-                    " - " .
-                    $e->getMessage(),
-            ]);
-        }
+        return AuthSocialiteService::handleProviderCallback($provider);
     }
 
     public function register()

@@ -9,6 +9,7 @@ use App\Http\Controllers\FashionVacanciesController;
 use App\Http\Controllers\Auth\Company\AuthCompanyController;
 use App\Http\Controllers\Auth\Professional\AuthProfessionalController;
 use App\Http\Controllers\Auth\Professional\DashboardController;
+use App\Http\Controllers\Auth\Company\DashboardController as CompanyController;
 
 Route::get("/", Home::class)->name("home");
 
@@ -43,26 +44,14 @@ Route::controller(AuthProfessionalController::class)
         Route::get("login", "index")->name(".index");
         Route::post("login", "loginByForm")->name(".login");
         Route::get("logout", "logout")->name(".logout");
-        Route::get("/auth/{provider}/redirect", "redirectToProvider")->name(
-            ".redirectToProvider"
-        );
-        Route::get("/auth/{provider}/callback", "handleProviderCallback")->name(
-            ".handleProviderCallback"
-        );
+
+        Route::get("/auth/{provider}/redirect", "redirectToProvider")->name(".redirectToProvider");
+        Route::get("/auth/{provider}/callback", "handleProviderCallback")->name(".handleProviderCallback");
 
         Route::middleware("professional")->group(function () {
-            Route::get("dashboard", [
-                DashboardController::class,
-                "index",
-            ])->name(".dashboard");
-            Route::get("profile", [
-                DashboardController::class,
-                "profile",
-            ])->name(".profile");
-            Route::get("my-vacancies", [
-                DashboardController::class,
-                "myVacancies",
-            ])->name(".myVacancies");
+            Route::get("dashboard", [DashboardController::class,"index"])->name(".dashboard");
+            Route::get("profile", [DashboardController::class,"profile"])->name(".profile");
+            Route::get("my-vacancies", [DashboardController::class,"myVacancies"])->name(".myVacancies");
         });
     });
 
@@ -71,7 +60,18 @@ Route::controller(AuthCompanyController::class)
     ->name("company")
     ->prefix("company")
     ->group(function () {
-        Route::get("recruiter", "recruiter")->name(".recruiter");
         Route::get("register", "register")->name(".register");
-        Route::get("login", "login")->name(".login");
+        Route::get("login", "index")->name(".index");
+        Route::post("login", "loginByForm")->name(".login");
+        Route::get("recruiter", "recruiter")->name(".recruiter");
+        Route::get("logout", "logout")->name(".logout");
+
+        Route::get("/auth/{provider}/redirect", "redirectToProvider")->name(".redirectToProvider");
+        Route::get("/auth/{provider}/callback", "handleProviderCallback")->name(".handleProviderCallback");
+
+        Route::middleware("company")->group(function () {
+            Route::get("dashboard", [CompanyController::class,"index"])->name(".dashboard");
+            Route::get("profile", [CompanyController::class,"profile"])->name(".profile");
+            Route::get("my-vacancies", [CompanyController::class,"myVacancies"])->name(".myVacancies");
+        });
     });
