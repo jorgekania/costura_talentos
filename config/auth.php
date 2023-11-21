@@ -42,6 +42,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'professional' => [
+            'driver' => 'session',
+            'provider' => 'professional',
+        ],
     ],
 
     /*
@@ -65,6 +69,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'professional' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\FashionProfessional::class,
         ],
 
         // 'users' => [

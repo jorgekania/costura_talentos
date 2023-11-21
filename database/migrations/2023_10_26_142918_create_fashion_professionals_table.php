@@ -12,18 +12,19 @@ return new class() extends Migration {
         Schema::create('fashion_professionals', function (Blueprint $table) {
             $table->foreignUuid('id')->primary();
             $table->string('name');
-            $table->string('password');
             $table->string('email')->unique();
+            $table->string('password')->nullable();
             $table->string('avatar')->nullable();
-            $table->string('zip_code');
-            $table->string('address');
-            $table->string('number');
-            $table->string('neighborhood');
+            $table->string('provider')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('address')->nullable();
+            $table->string('number')->nullable();
+            $table->string('neighborhood')->nullable();
             $table->string('complement')->nullable();
-            $table->string('city');
-            $table->string('long_state');
-            $table->string('short_state', 2);
-            $table->text('experience');
+            $table->string('city')->nullable();
+            $table->string('long_state')->nullable();
+            $table->string('short_state', 2)->nullable();
+            $table->text('experience')->nullable();
             $table->string('portifolio_url')->nullable();
             $table->string('curriculum_url')->nullable();
             $table->integer('time_experience')->default(0);

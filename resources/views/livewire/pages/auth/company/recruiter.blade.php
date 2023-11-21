@@ -9,7 +9,7 @@
                     <p class="text-white mb-10">Aqui no <span class="font-extrabold text-primary-orange">Costura
                             Talentos</span> você encontra o profissional da moda certo para seu
                         negócio</p>
-                    <a class="bg-primary-orange px-8 py-4 rounded-full text-xl text-white font-bold border border-white hover:bg-hover-orange hover:shadow-[0px_3px_8px_0.24px_#fa972f] uppercase"
+                    <a class="bg-primary-orange px-6 py-3 rounded-full text-lg text-white font-bold border border-white hover:bg-hover-orange hover:shadow-[0px_3px_8px_0.24px_#fa972f] uppercase"
                         href="{{ route('company.register') }}">Anúncie Suas Vagas Grátis</a>
                 </div>
             </div>

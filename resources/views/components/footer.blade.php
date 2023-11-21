@@ -2,7 +2,7 @@
     <div class="flex justify-center items-center space-x-3 pb-10 border-b">
         <h3 class="text-primary-blue text-xl font-bold text-center mr-10">Siga-nos</h3>
 
-        <a href="#" class="h-12 w-12 rounded-full bg-primary-blue">
+        <a href="#" class="h-12 w-12 rounded-full bg-primary-blue hover:bg-primary-orange hover:shadow-md">
             <svg viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                 clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
                 <path
@@ -11,7 +11,7 @@
             </svg>
         </a>
 
-        <a href="#" class="h-12 w-12 rounded-full bg-primary-blue">
+        <a href="#" class="h-12 w-12 rounded-full bg-primary-blue hover:bg-primary-orange hover:shadow-md">
             <svg viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                 clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
                 <path
@@ -20,7 +20,7 @@
             </svg>
         </a>
 
-        <a href="#" class="h-12 w-12 rounded-full bg-primary-blue">
+        <a href="#" class="h-12 w-12 rounded-full bg-primary-blue hover:bg-primary-orange hover:shadow-md">
             <svg viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                 clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
                 <path
@@ -29,7 +29,7 @@
             </svg>
         </a>
 
-        <a href="#" class="h-12 w-12 rounded-full bg-primary-blue">
+        <a href="#" class="h-12 w-12 rounded-full bg-primary-blue hover:bg-primary-orange hover:shadow-md">
             <svg viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                 clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
                 <path
@@ -38,7 +38,7 @@
             </svg>
         </a>
 
-        <a href="#" class="h-12 w-12 rounded-full bg-primary-blue">
+        <a href="#" class="h-12 w-12 rounded-full bg-primary-blue hover:bg-primary-orange hover:shadow-md">
             <svg viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                 clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
                 <path
@@ -50,16 +50,16 @@
     <div class="flex justify-center items-center mt-10">
         <ul class="flex">
             <li><a href="{{ route('vacancies') }}"
-                    class="text-primary-blue font-semibold hover:text-secondary-blue px-20 border-r border-primary-blue">Vagas</a>
+                    class="text-primary-blue font-semibold hover:text-secondary-blue hover:underline px-20 border-r border-primary-blue">Vagas</a>
             </li>
             <li><a href="{{ route('company.recruiter') }}"
-                    class="text-primary-blue font-semibold hover:text-secondary-blue px-20 border-r border-primary-blue">Sou
+                    class="text-primary-blue font-semibold hover:text-secondary-blue hover:underline px-20 border-r border-primary-blue">Sou
                     Empresa</a>
             </li>
             <li><a href="#"
-                class="text-primary-blue font-semibold hover:text-secondary-blue px-20 border-r border-primary-blue">Blog</a>
+                class="text-primary-blue font-semibold hover:text-secondary-blue hover:underline px-20 border-r border-primary-blue">Blog</a>
         </li>
-            <li><a href="#" class="text-primary-blue font-semibold hover:text-secondary-blue px-20">Contato</a>
+            <li><a href="#" class="text-primary-blue font-semibold hover:text-secondary-blue hover:underline px-20">Contato</a>
             </li>
         </ul>
     </div>

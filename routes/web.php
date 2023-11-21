@@ -5,9 +5,10 @@ declare(strict_types=1);
 use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\FashionCompanyComponent;
-use App\Http\Controllers\Auth\Company\AuthCompany;
 use App\Http\Controllers\FashionVacanciesController;
-use App\Http\Controllers\Auth\Professional\AuthProfessional;
+use App\Http\Controllers\Auth\Company\AuthCompanyController;
+use App\Http\Controllers\Auth\Professional\AuthProfessionalController;
+use App\Http\Controllers\Auth\Professional\DashboardController;
 
 Route::get("/", Home::class)->name("home");
 
@@ -34,16 +35,39 @@ Route::get("/vaga/{title}/{id}", [
 ])->name("vacancy");
 
 //Professional Routes
-Route::controller(AuthProfessional::class)
+Route::controller(AuthProfessionalController::class)
     ->name("professional")
     ->prefix("professional")
     ->group(function () {
-        Route::get("login", "login")->name(".login");
         Route::get("register", "register")->name(".register");
+        Route::get("login", "index")->name(".index");
+        Route::post("login", "loginByForm")->name(".login");
+        Route::get("logout", "logout")->name(".logout");
+        Route::get("/auth/{provider}/redirect", "redirectToProvider")->name(
+            ".redirectToProvider"
+        );
+        Route::get("/auth/{provider}/callback", "handleProviderCallback")->name(
+            ".handleProviderCallback"
+        );
+
+        Route::middleware("professional")->group(function () {
+            Route::get("dashboard", [
+                DashboardController::class,
+                "index",
+            ])->name(".dashboard");
+            Route::get("profile", [
+                DashboardController::class,
+                "profile",
+            ])->name(".profile");
+            Route::get("my-vacancies", [
+                DashboardController::class,
+                "myVacancies",
+            ])->name(".myVacancies");
+        });
     });
 
 // Company Rotes
-Route::controller(AuthCompany::class)
+Route::controller(AuthCompanyController::class)
     ->name("company")
     ->prefix("company")
     ->group(function () {
