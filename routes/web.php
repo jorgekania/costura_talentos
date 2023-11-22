@@ -5,10 +5,11 @@ declare(strict_types=1);
 use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\FashionCompanyComponent;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\FashionVacanciesController;
 use App\Http\Controllers\Auth\Company\AuthCompanyController;
-use App\Http\Controllers\Auth\Professional\AuthProfessionalController;
 use App\Http\Controllers\Auth\Professional\DashboardController;
+use App\Http\Controllers\Auth\Professional\AuthProfessionalController;
 use App\Http\Controllers\Auth\Company\DashboardController as CompanyController;
 
 Route::get("/", Home::class)->name("home");
@@ -35,6 +36,10 @@ Route::get("/vaga/{title}/{id}", [
     "vacancy",
 ])->name("vacancy");
 
+Route::get("/auth/{provider}/redirect", [AuthController::class, "redirectToProvider"])->name("redirect");
+Route::get("/auth/{provider}/callback", [AuthController::class, "handleProviderCallback"])->name("callback");
+
+
 //Professional Routes
 Route::controller(AuthProfessionalController::class)
     ->name("professional")
@@ -44,9 +49,6 @@ Route::controller(AuthProfessionalController::class)
         Route::get("login", "index")->name(".index");
         Route::post("login", "loginByForm")->name(".login");
         Route::get("logout", "logout")->name(".logout");
-
-        Route::get("/auth/{provider}/redirect", "redirectToProvider")->name(".redirectToProvider");
-        Route::get("/auth/{provider}/callback", "handleProviderCallback")->name(".handleProviderCallback");
 
         Route::middleware("professional")->group(function () {
             Route::get("dashboard", [DashboardController::class,"index"])->name(".dashboard");
@@ -65,9 +67,6 @@ Route::controller(AuthCompanyController::class)
         Route::post("login", "loginByForm")->name(".login");
         Route::get("recruiter", "recruiter")->name(".recruiter");
         Route::get("logout", "logout")->name(".logout");
-
-        Route::get("/auth/{provider}/redirect", "redirectToProvider")->name(".redirectToProvider");
-        Route::get("/auth/{provider}/callback", "handleProviderCallback")->name(".handleProviderCallback");
 
         Route::middleware("company")->group(function () {
             Route::get("dashboard", [CompanyController::class,"index"])->name(".dashboard");

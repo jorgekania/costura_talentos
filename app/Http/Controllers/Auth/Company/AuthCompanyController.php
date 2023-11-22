@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Services\AuthSocialiteService;
+use Illuminate\Support\Facades\Session;
 
 class AuthCompanyController extends Controller
 {
@@ -45,16 +46,6 @@ class AuthCompanyController extends Controller
         ]);
     }
 
-    public function redirectToProvider($provider)
-    {
-        return AuthSocialiteService::redirectToProvider($provider);
-    }
-
-    public function handleProviderCallback($provider)
-    {
-        return AuthSocialiteService::handleProviderCallback($provider);
-    }
-
     public function register()
     {
         return view("livewire.pages.auth.company.register");
@@ -68,6 +59,7 @@ class AuthCompanyController extends Controller
     public function logout()
     {
         Auth::guard("company")->logout();
+        Session::forget('current_url');
         return redirect()->route("home");
     }
 }

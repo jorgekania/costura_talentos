@@ -18,7 +18,6 @@
 </head>
 
 <body class="antialiased">
-
     <div class="p-5 mx-auto xl:max-w-screen-xl">
         <section id="header">
             @include('components.header')

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Services\AuthSocialiteService;
+use Illuminate\Support\Facades\Session;
 
 class AuthProfessionalController extends Controller
 {
@@ -46,16 +47,6 @@ class AuthProfessionalController extends Controller
         ]);
     }
 
-    public function redirectToProvider($provider)
-    {
-        return AuthSocialiteService::redirectToProvider($provider);
-    }
-
-    public function handleProviderCallback($provider)
-    {
-        return AuthSocialiteService::handleProviderCallback($provider);
-    }
-
     public function register()
     {
         return view("livewire.pages.auth.professional.register");
@@ -64,6 +55,7 @@ class AuthProfessionalController extends Controller
     public function logout()
     {
         Auth::guard("professional")->logout();
+        Session::forget('current_url');
         return redirect()->route("home");
     }
 }

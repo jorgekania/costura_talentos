@@ -1,4 +1,4 @@
-<a href="{{ route('professional.redirectToProvider', 'google') }}"
+<a href="{{ route('redirect', 'google') }}"
     class="w-full font-bold shadow-sm rounded-full py-2 px-3 bg-indigo-100  flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mb-3">
     <div class="bg-white p-2 rounded-full">
         <svg class="w-4" viewBox="0 0 533.5 544.3">

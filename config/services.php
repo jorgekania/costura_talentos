@@ -33,10 +33,10 @@ return [
     ],
 
     'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => request()->segment(1) === 'PROFESSIONAL' ? env('GOOGLE_REDIRECT_URI_PROFESSIONAL') : env('GOOGLE_REDIRECT_URI_COMPANY')
-      ],
+            'client_id' => env('GOOGLE_CLIENT_ID'),
+            'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+            'redirect' => env('GOOGLE_REDIRECT_URI'),
+        ],
 
     "linkedin" => [
         "client_id" => env("LINKEDIN_CLIENT_ID"),

@@ -2,10 +2,11 @@
 
 namespace App\Services;
 
-use App\Models\FashionCompany;
 use Exception;
+use App\Models\FashionCompany;
 use App\Models\FashionProfessional;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthSocialiteService
@@ -15,15 +16,13 @@ class AuthSocialiteService
         return Socialite::driver($provider)->redirect();
     }
 
-    public static function handleProviderCallback($provider)
+    public static function handleProviderCallback($provider, $routerSegment)
     {
         try {
             $socialiteUser = Socialite::driver($provider)->user();
+            $routerSegment = self::treatRoute($routerSegment);
 
-            $routerSegment = request()->segment(1);
-
-            if($routerSegment === 'professional'){
-
+            if ($routerSegment === "professional") {
                 $professional = FashionProfessional::updateOrCreate(
                     [
                         "email" => $socialiteUser->getEmail(),
@@ -36,10 +35,10 @@ class AuthSocialiteService
                 );
 
                 Auth::guard("professional")->login($professional);
+                Session::forget("current_url");
 
                 return redirect()->route("professional.dashboard");
-            }else{
-
+            } else {
                 $company = FashionCompany::updateOrCreate(
                     [
                         "email" => $socialiteUser->getEmail(),
@@ -52,10 +51,10 @@ class AuthSocialiteService
                 );
 
                 Auth::guard("company")->login($company);
+                Session::forget("current_url");
 
                 return redirect()->route("company.dashboard");
             }
-
         } catch (Exception $e) {
             return back()->withErrors([
                 "error" =>
@@ -65,5 +64,16 @@ class AuthSocialiteService
                     $e->getMessage(),
             ]);
         }
+    }
+
+    protected static function treatRoute($route)
+    {
+        $segments = explode("/", $route);
+
+        if (count($segments) >= 2) {
+            return $segments[3];
+        }
+
+        return "Segmento de rota não definido";
     }
 }
