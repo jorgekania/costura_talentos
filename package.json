@@ -16,6 +16,8 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "@tailwindcss/container-queries": "^0.1.1"
+        "@alpinejs/mask": "^3.13.3",
+        "@tailwindcss/container-queries": "^0.1.1",
+        "tinymce": "^6.8.0"
     }
 }

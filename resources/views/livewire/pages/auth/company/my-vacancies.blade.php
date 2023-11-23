@@ -1,10 +1,7 @@
-@extends('layouts.app')
+@extends('livewire.pages.auth.company.home')
 
-@section('content')
-    <div class="max-w-screen-xl m-0 bg-white flex justify-center flex-1">
-        <div>
-            <h1 class="mt-20">Vagas Disponibilizadas</h1>
-            <p>{{ Auth::guard('company')->user()->corporate_reason }}</p>
-        </div>
+@section('content-company')
+    <div>
+        <h1>Minhas vagas</h1>
     </div>
 @endsection

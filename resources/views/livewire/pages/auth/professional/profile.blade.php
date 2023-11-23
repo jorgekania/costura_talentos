@@ -1,10 +1,7 @@
-@extends('layouts.app')
+@extends('livewire.pages.auth.professional.home')
 
-@section('content')
-    <div class="max-w-screen-xl m-0 bg-white flex justify-center flex-1">
-        <div>
-            <h1 class="mt-20">Perfil Cadidatos</h1>
-            <p>{{ Auth::guard('professional')->user()->name }}</p>
-        </div>
+@section('content-professional')
+    <div>
+        <h1>Perfil Candidato</h1>
     </div>
 @endsection

@@ -135,4 +135,9 @@ class FashionCompany extends Model implements Authenticatable
 
         return $googleMapsUrl;
     }
+
+    public function getListCompanySizeAttribute()
+    {
+        return CompanySize::cases();
+    }
 }

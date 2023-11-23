@@ -53,6 +53,9 @@ class AuthCompanyController extends Controller
 
     public function recruiter()
     {
+        if (Auth::guard("company")->check()) {
+            return view("livewire.pages.auth.company.dashboard");
+        }
         return view("livewire.pages.auth.company.recruiter");
     }
 

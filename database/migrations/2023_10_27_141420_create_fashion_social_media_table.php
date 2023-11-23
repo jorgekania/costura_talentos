@@ -17,7 +17,7 @@ return new class() extends Migration {
 
             $table->foreignUuid('fashion_company_id')->constrained();
 
-            $table->string('professional_or_company')->default('PROFESSIONAL');
+            $table->string('professional_or_company')->default('PROFISSIONAL');
             $table->string('name_social_media');
             $table->string('social_media_url');
             $table->boolean('is_active')->default(true);

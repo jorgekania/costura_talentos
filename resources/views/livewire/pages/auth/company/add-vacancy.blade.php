@@ -2,6 +2,6 @@
 
 @section('content-company')
     <div>
-        <h1>Dashboard</h1>
+        <h1>Nova Vaga</h1>
     </div>
 @endsection

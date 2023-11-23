@@ -28,9 +28,9 @@ return new class() extends Migration {
             $table->string('portifolio_url')->nullable();
             $table->string('curriculum_url')->nullable();
             $table->integer('time_experience')->default(0);
-            $table->string('prefer_to_work_where')->default('COMPANIES');
+            $table->string('prefer_to_work_where')->default('EMPRESA');
             $table->string('hiring_regime')->default('CLT');
-            $table->string('form_of_remuneration')->default('MONTH');
+            $table->string('form_of_remuneration')->default('MÊS');
             $table->integer('remuneration_value')->default(0);
             $table->boolean('is_active')->default(true);
             $table->softDeletes();

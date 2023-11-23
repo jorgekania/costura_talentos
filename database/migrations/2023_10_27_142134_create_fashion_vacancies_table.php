@@ -21,7 +21,7 @@ return new class() extends Migration
             $table->foreign('specializations_id')->references('id')->on('fashion_professional_specializations');
 
             $table->integer('time_experience')->default(0);
-            $table->string('work_where')->default('MONTH');
+            $table->string('work_where')->default('MÊS');
             $table->integer('remuneration_value')->default(0);
             $table->string('hiring_regime')->default('CLT');
             $table->text('activities_and_responsibilities');

@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "alpinejs",
         "applieds",
         "costuratalentos",
         "FACCIONISTA",
@@ -10,6 +11,7 @@
         "Livewire",
         "mailgun",
         "tailwindcss",
+        "tinymce",
         "Uuids"
     ],
     "php.validate.executablePath": "usr/bin/php"

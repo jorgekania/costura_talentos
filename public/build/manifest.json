@@ -1,12 +1,23 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-ca67acc8.css",
+    "file": "assets/app-c1e8b053.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/js/app.css": {
+    "file": "assets/app-5e3700c2.css",
+    "src": "resources/js/app.css"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-1ace652a.js",
+    "css": [
+      "assets/app-5e3700c2.css"
+    ],
+    "file": "assets/app-22e13f17.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "storage/app/public/global/banner-recruiter.jpg": {
+    "file": "assets/banner-recruiter-f29ad636.jpg",
+    "src": "storage/app/public/global/banner-recruiter.jpg"
   }
 }

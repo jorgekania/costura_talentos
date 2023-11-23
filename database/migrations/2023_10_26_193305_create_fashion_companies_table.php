@@ -25,7 +25,7 @@ return new class extends Migration {
             $table->string("city")->nullable();
             $table->string("long_state")->nullable();
             $table->string("short_state", 2)->nullable();
-            $table->string("company_size")->default("BIG");
+            $table->string("company_size")->default("GRANDE");
             $table->text("description")->nullable();
             $table->string("website")->nullable();
             $table->boolean("is_active")->default(true);

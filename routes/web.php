@@ -72,5 +72,6 @@ Route::controller(AuthCompanyController::class)
             Route::get("dashboard", [CompanyController::class,"index"])->name(".dashboard");
             Route::get("profile", [CompanyController::class,"profile"])->name(".profile");
             Route::get("my-vacancies", [CompanyController::class,"myVacancies"])->name(".myVacancies");
+            Route::get("add-vacancies", [CompanyController::class,"addVacancies"])->name(".addVacancies");
         });
     });
