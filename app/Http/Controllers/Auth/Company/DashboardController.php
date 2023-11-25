@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Auth\Company;
 
-use App\Http\Controllers\Controller;
+use App\Traits\AlertsTrait;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\EditCompanyRequest;
 
 class DashboardController extends Controller
 {
+    use AlertsTrait;
+
     public function index()
     {
         return view("livewire.pages.auth.company.dashboard");

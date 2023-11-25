@@ -7,6 +7,7 @@
     },
     "devDependencies": {
         "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@tailwindcss/forms": "^0.5.7",
         "@tailwindcss/typography": "^0.5.10",
         "autoprefixer": "^10.4.16",
         "axios": "^1.1.2",
@@ -16,8 +17,8 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "@alpinejs/mask": "^3.13.3",
         "@tailwindcss/container-queries": "^0.1.1",
+        "sweetalert2": "^11.10.1",
         "tinymce": "^6.8.0"
     }
 }

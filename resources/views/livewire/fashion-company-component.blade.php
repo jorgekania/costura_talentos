@@ -76,10 +76,9 @@
 
                 </tbody>
             @empty
-                <p>Nenhuma empresa apra listar</p>
+                <p>Nenhuma empresa para listar</p>
             @endforelse
         </table>
-        @dd($companies->links())
         {{ $companies->links() }}
     </div>
 </div>
