@@ -4,7 +4,7 @@
     @php
         $company = Auth::guard('company')->user();
     @endphp
-    <section class="py-1" x-data="{ activeTab: 1}">
+    <section class="py-1" x-data="{ activeTab: '#tabFormProfile', saveActiveTab }" @beforeDomUpdate="saveActiveTab">
         <div class="w-full mx-auto">
             <div class="relative flex flex-col min-w-0 break-words w-full rounded-lg bg-blueGray-100 border-0">
                 <div class="bg-white mb-0 pb-6 px-4">
@@ -18,60 +18,66 @@
                             Empresa
                         </h6>
                         <div class="-mb-12">
-                            <ul class="flex flex-wrap -mb-px">
+                            <ul class="flex flex-wrap -mb-px" x-init="setActiveTab">
                                 <li class="mr-2">
                                     <a href="#"
                                         :class="{
                                             'bg-blueGray-700 text-blueGray-50 hover:border-primary-orange ': activeTab ===
-                                                1,
-                                            'bg-blueGray-400': activeTab !== 1
+                                            '#tabFormProfile',
+                                            'bg-blueGray-400': activeTab !== '#tabFormProfile'
                                         }"
                                         class="inline-block textbluerGray-700 hover:text-blueGray-50 hover:border-t-8 hover:border-blueGray-700 rounded-t-lg py-1 px-4 text-sm font-medium text-center border-transparent border-t-8"
-                                        x-on:click="activeTab = 1">Perfil</a>
+                                        data-active-tab="#tabFormProfile"
+                                        x-on:click.prevent="activeTab = '#tabFormProfile'; saveActiveTab(event)">Perfil</a>
                                 </li>
                                 <li class="mr-2">
                                     <a href="#"
                                         :class="{
                                             'bg-blueGray-700 text-blueGray-50 hover:border-primary-orange': activeTab ===
-                                                2,
-                                            'bg-blueGray-400': activeTab !== 2
+                                            '#tabFormContact',
+                                            'bg-blueGray-400': activeTab !== '#tabFormContact'
                                         }"
                                         class="inline-block textbluerGray-700 hover:text-blueGray-50 hover:border-t-8 hover:border-blueGray-700 rounded-t-lg py-1 px-4 text-sm font-medium text-center border-transparent border-t-8 active"
-                                        x-on:click="activeTab = 2">Contatos</a>
+                                        data-active-tab="#tabFormContact"
+                                        x-on:click.prevent="activeTab = '#tabFormContact'; saveActiveTab(event)">Contatos</a>
                                 </li>
                                 <li class="mr-2">
                                     <a href="#"
                                         :class="{
                                             'bg-blueGray-700 text-blueGray-50 hover:border-primary-orange': activeTab ===
-                                                3,
-                                            'bg-blueGray-400': activeTab !== 3
+                                            '#tabFormSocialMedia',
+                                            'bg-blueGray-400': activeTab !== '#tabFormSocialMedia'
                                         }"
                                         class="inline-block textbluerGray-700 hover:text-blueGray-50 hover:border-t-8 hover:border-blueGray-700 rounded-t-lg py-1 px-4 text-sm font-medium text-center border-transparent border-t-8"
-                                        x-on:click="activeTab = 3">Redes Socias</a>
+                                        data-active-tab="#tabFormSocialMedia"
+                                        x-on:click.prevent="activeTab = '#tabFormSocialMedia'; saveActiveTab(event)">Redes Socias</a>
                                 </li>
                                 <li>
                                     <a href="#"
                                         :class="{
                                             'bg-blueGray-700 text-blueGray-50 hover:border-primary-orange': activeTab ===
-                                                4,
-                                            'bg-blueGray-400': activeTab !== 4
+                                            '#tabFormPassword',
+                                            'bg-blueGray-400': activeTab !== '#tabFormPassword'
                                         }"
                                         class="inline-block textbluerGray-700 hover:text-blueGray-50 hover:border-t-8 hover:border-blueGray-700 rounded-t-lg py-1 px-4 text-sm font-medium text-center border-transparent border-t-8"
-                                        x-on:click="activeTab = 4">Senha</a>
+                                        data-active-tab="#tabFormPassword"
+                                        x-on:click.prevent="activeTab = '#tabFormPassword'; saveActiveTab(event)">Senha</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div x-show="activeTab === 1" class="flex-auto px-4" id="formProfile">
+                <div x-show="activeTab === '#tabFormProfile'" class="flex-auto px-4" id="formProfile">
                     <livewire:form-profile :company="$company" />
                 </div>
 
-                <div x-show="activeTab === 2" class="flex-auto px-4" id="formContact">Tab 2</div>
+                <div x-show="activeTab === '#tabFormContact'" class="flex-auto px-4" id="formContact">
+                    <livewire:form-contacts :company="$company" />
+                </div>
 
-                <div x-show="activeTab === 3" class="flex-auto px-4" id="formSocialMedia">Tab 3</div>
+                <div x-show="activeTab === '#tabFormSocialMedia'" class="flex-auto px-4" id="formSocialMedia">Tab 3</div>
 
-                <div x-show="activeTab === 4" class="flex-auto px-4" id="formPassword">Tab 4</div>
+                <div x-show="activeTab === '#tabFormPassword'" class="flex-auto px-4" id="formPassword">Tab 4</div>
             </div>
         </div>
     </section>

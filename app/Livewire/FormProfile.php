@@ -8,22 +8,24 @@ use App\Helpers\MyStrings;
 use App\Traits\AlertsTrait;
 use App\Helpers\SearchZipCode;
 use App\Models\FashionCompany;
+use App\Traits\GetLongStateTrait;
 
 class FormProfile extends Component
 {
     use AlertsTrait;
+    use GetLongStateTrait;
 
     protected array $rules = [
         "corporate_reason" => "required|string|min:5",
         "email" => "required|email:filter",
-        "website" => "url:http,https",
+        "website" => "nullable|url:http,https",
         "description" => "required|min:20",
         "zip_code" => "required|min:8|max:8",
-        "address" => "required",
-        "number" => "required",
-        "neighborhood" => "required",
-        "city" => "required",
-        "state" => "required",
+        "address" => "nullable",
+        "number" => "nullable",
+        "neighborhood" => "nullable",
+        "city" => "nullable",
+        "state" => "nullable",
     ];
 
     protected array $messages = [
@@ -35,7 +37,8 @@ class FormProfile extends Component
         "email.required" => "O email é obrigatório",
         "email.email" => "O email não é válido",
 
-        "website.url" => "A URL do site não é válida. Deve iniciar com http ou https",
+        "website.url" =>
+            "A URL do site não é válida. Deve iniciar com http ou https",
 
         "description.required" => "Digite uma descrição para empresa",
         "description.min" => "A descrição deve ter no mínimo 20 caracteres",
@@ -44,13 +47,13 @@ class FormProfile extends Component
         "zip_code.min" => "O CEP deve ter no mínimo 8 caracteres",
         "zip_code.max" => "O CEP deve ter no máximo 8 caracteres",
 
-        "address.required" => "O endereço é obrigatório",
+        "address.nullable" => "O endereço é obrigatório",
 
-        "number.required" => "O número da empresa é obrigatório",
+        "number.nullable" => "O número da empresa é obrigatório",
 
-        "neighborhood.required" => "O bairro é obrigatório",
-        "city.required" => "A cidade é obrigatório",
-        "state.required" => "O estado é obrigatório",
+        "neighborhood.nullable" => "O bairro é obrigatório",
+        "city.nullable" => "A cidade é obrigatório",
+        "state.nullable" => "O estado é obrigatório",
     ];
 
     public $company;
@@ -76,7 +79,7 @@ class FormProfile extends Component
         $this->company_size = $company->company_size;
         $this->website = $company->website;
         $this->description = $company->description;
-        $this->zip_code = MyStrings::sanitize($company->zip_code);
+        $this->zip_code = MyStrings::sanitize($company->zip_code ?? '');
         $this->address = $company->address;
         $this->number = $company->number;
         $this->complement = $company->complement;
@@ -96,9 +99,6 @@ class FormProfile extends Component
         $this->zip_code = MyStrings::sanitize($this->zip_code);
         $this->validate();
 
-        // dd($this->description);
-
-
         try {
             $edit = FashionCompany::find($this->company->id);
 
@@ -114,7 +114,7 @@ class FormProfile extends Component
             $edit->neighborhood = $this->neighborhood;
             $edit->city = $this->city;
             $edit->short_state = $this->state;
-            $edit->long_state = $this->getLongState($this->state);
+            $edit->long_state = $this->get($this->state);
             $edit->save();
 
             $this->showAlert(
@@ -122,9 +122,6 @@ class FormProfile extends Component
                 "Editar perfil!",
                 "Perfil editado com sucesso"
             );
-
-            // $this->render();
-
         } catch (Exception $e) {
             $this->showAlert("error", "Editar perfil!", $e->getMessage());
             return;
@@ -152,43 +149,6 @@ class FormProfile extends Component
         $this->state = $data["uf"];
 
         $this->showAlert("success", "Busca por CEP", "CEP localizado!");
-
-        // $this->render();
-    }
-
-    private function getLongState($shortState)
-    {
-        $stateMapping = [
-            "AC" => "Acre",
-            "AL" => "Alagoas",
-            "AP" => "Amapá",
-            "AM" => "Amazonas",
-            "BA" => "Bahia",
-            "CE" => "Ceará",
-            "DF" => "Distrito",
-            "ES" => "Espírito",
-            "GO" => "Goiás",
-            "MA" => "Maranhão",
-            "MT" => "Mato",
-            "MS" => "Mato",
-            "MG" => "Minas",
-            "PA" => "Pará",
-            "PB" => "Paraíba",
-            "PR" => "Paraná",
-            "PE" => "Pernambuco",
-            "PI" => "Piauí",
-            "RJ" => "Rio",
-            "RN" => "Rio",
-            "RS" => "Rio",
-            "RO" => "Rondônia",
-            "RR" => "Roraima",
-            "SC" => "Santa",
-            "SP" => "São",
-            "SE" => "Sergipe",
-            "TO" => "Tocantins",
-        ];
-
-        return $stateMapping[$shortState] ?? "Desconhecido";
     }
 
     public function setTinyMCE()

@@ -65,11 +65,11 @@
                 <textarea type="text" name="description" id="description" wire:model.lazy="description"
                     class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring-1 w-full"
                     rows="5"></textarea>
-                </div>
             </div>
-            @error('description')
-                <span class="relative w-full mb-3 text-red-600 text-sm px-4">{{ $message }}</span>
-            @enderror
+        </div>
+        @error('description')
+            <span class="relative w-full mb-3 text-red-600 text-sm px-4">{{ $message }}</span>
+        @enderror
     </div>
 
     <hr class="mt-6 border-b-1 border-blueGray-300">
@@ -195,7 +195,7 @@
         <div class="w-full lg:w-12/12 px-4 text-right">
             <button
                 class="flex m-auto items-center bg-blueGray-700 text-white hover:bg-blueGray-400 hover:text-blueGray-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mt-5"
-                type="button" wire:click="editProfile" >
+                type="button" wire:click="editProfile">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6 mr-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -208,7 +208,6 @@
 </form>
 
 <script>
-
     window.addEventListener("renderTinymce", () => {
         tinymce.init({
             selector: "textarea#description",
@@ -230,13 +229,19 @@
                 editor.on('change', function(e) {
                     @this.set('description', editor.getContent());
                 });
-
-                // window.addEventListener('renderTinymce', function(event) {
-                //     console.log(event.detail[0].description);
-                //     editor.setContent(event.detail[0].description);
-                // });
-
             },
         });
     });
+
+    function setActiveTab() {
+        const activeTab = localStorage.getItem('activeTab') ?? '#tabFormProfile';
+
+        if (activeTab) {
+            localStorage.setItem('activeTab', this.activeTab);
+        }
+    }
+
+    function saveActiveTab() {
+        localStorage.setItem('activeTab', event.currentTarget.getAttribute('data-active-tab'));
+    }
 </script>
