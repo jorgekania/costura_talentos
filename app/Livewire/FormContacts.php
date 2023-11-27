@@ -2,13 +2,14 @@
 
 namespace App\Livewire;
 
-use App\Helpers\MyNumbers;
+use Dotenv\Util\Str;
 use Livewire\Component;
+use App\Helpers\MyNumbers;
 use App\Helpers\MyStrings;
 use App\Traits\AlertsTrait;
 use App\Models\FashionPhone;
 use App\Models\FashionCompany;
-use Dotenv\Util\Str;
+use App\Enums\RegistrationType;
 use PhpParser\Node\Expr\Cast\Bool_;
 
 class FormContacts extends Component
@@ -60,7 +61,7 @@ class FormContacts extends Component
             ],
             [
                 "fashion_company_id" => $this->company_id,
-                "professional_or_company" => "PROFESSIONAL",
+                "professional_or_company" => RegistrationType::COMPANY,
                 "phone_type" => $this->phone_type,
                 "is_main" => $this->is_main,
             ]
@@ -95,7 +96,7 @@ class FormContacts extends Component
 
         $this->render();
 
-        $this->showAlert("success", "Telefone!", "Telefone com sucesso");
+        $this->showAlert("success", "Telefone!", "Telefone excluído com sucesso");
     }
 
     protected function phonesForCompany(){

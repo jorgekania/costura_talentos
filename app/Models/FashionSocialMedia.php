@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\RegistrationType;
+use App\Enums\SocialMedia;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,16 +19,17 @@ class FashionSocialMedia extends Model
     use HasUuids;
 
     protected $fillable = [
-        'id',
-        'fashion_company_id',
-        'professional_or_company',
-        'name_social_media',
-        'social_media_url',
-        'is_active',
+        "id",
+        "fashion_company_id",
+        "professional_or_company",
+        "name_social_media",
+        "social_media_url",
+        "is_active",
     ];
 
     protected $casts = [
-        'professional_or_company' => RegistrationType::class
+        "professional_or_company" => RegistrationType::class,
+        "name_social_media" => SocialMedia::class,
     ];
 
     /**

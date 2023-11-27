@@ -90,9 +90,13 @@
                     <livewire:form-contacts :company="$company" />
                 </div>
 
-                <div x-show="activeTab === '#tabFormSocialMedia'" class="flex-auto px-4" id="formSocialMedia">Tab 3</div>
+                <div x-show="activeTab === '#tabFormSocialMedia'" class="flex-auto px-4" id="formSocialMedia">
+                    <livewire:form-social-media :company="$company" />
+                </div>
 
-                <div x-show="activeTab === '#tabFormPassword'" class="flex-auto px-4" id="formPassword">Tab 4</div>
+                <div x-show="activeTab === '#tabFormPassword'" class="flex-auto px-4" id="formPassword">
+                    <livewire:form-update-password :company="$company" />
+                </div>
             </div>
         </div>
     </section>

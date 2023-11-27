@@ -19,6 +19,13 @@ export default {
                 "blueGray-400": "#93a3b8",
                 "blueGray-600": "#475569",
                 "blueGray-700": "#334155",
+                "colorYouTube": "#e42d27",
+                "colorInstagram": "#da2f92",
+                "colorFacebook": "#3b5999",
+                "colorTikTok": "#ee1d52",
+                "colorTwitter": "#55acef",
+                "colorPinterest": "#bd071d",
+                "colorLinkedIn": "#0177b5",
             },
             backgroundImage: {
                 "banner-recruiter":

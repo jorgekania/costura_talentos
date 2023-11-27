@@ -1,18 +1,34 @@
 {
     "cSpell.words": [
+        "advlist",
         "alpinejs",
         "applieds",
+        "backcolor",
+        "bullist",
+        "codesample",
         "costuratalentos",
         "FACCIONISTA",
         "faccionistas",
+        "fontfamily",
+        "forecolor",
+        "ibge",
         "laravel",
+        "lineheight",
         "linkedin",
         "livewire",
         "Livewire",
         "mailgun",
+        "numlist",
+        "pagebreak",
+        "Pinterest",
+        "removeformat",
+        "siafi",
+        "Swal",
         "tailwindcss",
+        "TIKTOK",
         "tinymce",
-        "Uuids"
+        "Uuids",
+        "YOUTUBE"
     ],
     "php.validate.executablePath": "usr/bin/php"
 }

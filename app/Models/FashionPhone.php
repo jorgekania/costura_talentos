@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\PhoneType;
+use App\Enums\RegistrationType;
 use App\Helpers\MyNumbers;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -29,6 +30,7 @@ class FashionPhone extends Model
 
     protected $casts = [
         "phone_type" => PhoneType::class,
+        "professional_or_company"=> RegistrationType::class
     ];
 
     /**

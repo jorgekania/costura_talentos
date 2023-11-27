@@ -244,4 +244,12 @@
     function saveActiveTab() {
         localStorage.setItem('activeTab', event.currentTarget.getAttribute('data-active-tab'));
     }
+
+    document.addEventListener('redirectLogout', function() {
+
+        setTimeout(function() {
+            window.location.href = "login";
+        }, 5000);
+
+    });
 </script>
