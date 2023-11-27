@@ -8,7 +8,7 @@
                     $company = Auth::guard('company')->user();
                     $logoPath = $company->logo;
                 @endphp
-                <img src="{{ $company->provider ? $company->logo : (Storage::disk('public')->exists($logoPath) ? Storage::url($logoPath) : Storage::url('company_logos/company-icon.png')) }}"
+                <img src="{{ $company->provider && str_contains($company->logo, "https://") ? $company->logo : (Storage::disk('public')->exists($logoPath) ? Storage::url($logoPath) : Storage::url('company_logos/company-icon.png')) }}"
                     alt="{{ $company->corporate_reason }}"
                     class="rounded-full shadow-lg border-4 border-primary-blue h-36 w-36 object-cover">
             </div>
