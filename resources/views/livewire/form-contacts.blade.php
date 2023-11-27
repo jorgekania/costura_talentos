@@ -1,7 +1,7 @@
 <div>
     <form>
         <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
-            Sobre
+            Adicione novos telefones de contato
         </h6>
         <div class="flex flex-wrap">
             <div class="w-full lg:w-3/12 px-4">
@@ -26,7 +26,7 @@
                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                         Número de Telefone
                     </label>
-                    <input type="phone_number" name="phone_number" id="phone_number" wire:model="phone_number"
+                    <input type="text" name="phone_number" id="phone_number" wire:model="phone_number"
                         x-mask="(99) 9 9999-9999" placeholder="(99) 9 9999-9999"
                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring-1 w-full">
                     @error('phone_number')
@@ -66,7 +66,15 @@
 
     <hr class="mt-6 border-b-1 border-blueGray-300">
 
+
     <div class="relative overflow-x-auto">
+        <h6 class="flex items-center text-blueGray-700 text-xl font-bold py-5">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+
+            Telefones Cadastrados
+        </h6>
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 mb-10">
             <thead class="text-xs text-blueGray-50 uppercase bg-blueGray-700 ">
                 <tr>
@@ -79,7 +87,7 @@
                     <th scope="col" class="px-6 py-3">
                         É o principal
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 text-center">
                         Ações
                     </th>
                 </tr>
@@ -110,11 +118,27 @@
                                 @endif
                             </div>
                         </td>
-                        <td class="flex items-center px-6 py-4">
+                        <td class="flex justify-center items-center px-6 py-4">
                             <a href="#" x-on:click="$wire.edit('{{ $phone['id'] }}')"
-                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
+                                class="flex px-2 py-1 font-light bg-blue-600 text-white rounded-md items-center hover:bg-blue-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-3 h-3 mr-2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                                </svg>
+
+                                Editar
+                            </a>
                             <a href="#" x-on:click="$wire.remove('{{ $phone['id'] }}')"
-                                class="font-medium text-red-600 dark:text-red-500 hover:underline ms-6">Remover</a>
+                                class="flex px-2 py-1 font-light bg-red-600 text-white rounded-md items-center hover:bg-red-500 ms-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-3 h-3 mr-2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                </svg>
+
+                                Remover
+                            </a>
                         </td>
                     </tr>
                 @endforeach

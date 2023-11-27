@@ -33,6 +33,17 @@
                                 <li class="mr-2">
                                     <a href="#"
                                         :class="{
+                                            'bg-blueGray-700 text-blueGray-50 hover:border-primary-orange ': activeTab ===
+                                            '#tabFormUploadLogo',
+                                            'bg-blueGray-400': activeTab !== '#tabFormUploadLogo'
+                                        }"
+                                        class="inline-block textbluerGray-700 hover:text-blueGray-50 hover:border-t-8 hover:border-blueGray-700 rounded-t-lg py-1 px-4 text-sm font-medium text-center border-transparent border-t-8"
+                                        data-active-tab="#tabFormUploadLogo"
+                                        x-on:click.prevent="activeTab = '#tabFormUploadLogo'; saveActiveTab(event)">Logo</a>
+                                </li>
+                                <li class="mr-2">
+                                    <a href="#"
+                                        :class="{
                                             'bg-blueGray-700 text-blueGray-50 hover:border-primary-orange': activeTab ===
                                             '#tabFormContact',
                                             'bg-blueGray-400': activeTab !== '#tabFormContact'
@@ -69,6 +80,10 @@
                 </div>
                 <div x-show="activeTab === '#tabFormProfile'" class="flex-auto px-4" id="formProfile">
                     <livewire:form-profile :company="$company" />
+                </div>
+
+                <div x-show="activeTab === '#tabFormUploadLogo'" class="flex-auto px-4" id="formUploadLogo">
+                    <livewire:form-upload-logo :company="$company" />
                 </div>
 
                 <div x-show="activeTab === '#tabFormContact'" class="flex-auto px-4" id="formContact">

@@ -3,14 +3,14 @@
 @section('content')
     <div class="flex max-w-screen-xl mt-20 bg-white">
         <div class="w-1/4 bg-base rounded-lg p-5 mr-5 shadow-lg">
-            <div class="w-1/2 m-auto">
+            <div class="w-36 m-auto">
                 @php
                     $company = Auth::guard('company')->user();
                     $logoPath = $company->logo;
                 @endphp
                 <img src="{{ $company->provider ? $company->logo : (Storage::disk('public')->exists($logoPath) ? Storage::url($logoPath) : Storage::url('company_logos/company-icon.png')) }}"
                     alt="{{ $company->corporate_reason }}"
-                    class="rounded-full shadow-lg border-4 border-primary-blue">
+                    class="rounded-full shadow-lg border-4 border-primary-blue h-36 w-36 object-cover">
             </div>
             <p
                 class="px-5 py-2 m-auto bg-white text-center mt-5 text-primary-blue font-semibold text-md rounded-full shadow-md">
