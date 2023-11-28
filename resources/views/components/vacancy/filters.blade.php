@@ -143,10 +143,7 @@
         <button type="submit"
             class="flex text-white bg-primary-blue hover:bg-secondary-blue hover:text-black py-2 px-3 rounded-md">
             Filtrar
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                viewBox="0 0 24 24" class="w-6 h-6 ml-3">
-                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
+            <x-heroicon-s-magnifying-glass class="w-6 h-6 ml-3"/>
         </button>
     </div>
 </form>

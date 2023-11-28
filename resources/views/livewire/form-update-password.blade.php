@@ -1,4 +1,4 @@
-<div>
+<div class="w-1/2 m-auto">
     <form>
         <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
             Atualize sua senha de acesso
@@ -55,10 +55,7 @@
                 <button
                     class="flex m-auto items-center bg-blueGray-700 text-white hover:bg-blueGray-400 hover:text-blueGray-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mt-5"
                     type="button" x-on:click="$wire.save('{{ $company->id }}')">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 mr-2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
+                    <x-heroicon-o-check class="w-6 h-5 mr-2"/>
                     Salvar Nova Senha
                 </button>
             </div>

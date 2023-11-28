@@ -26,6 +26,7 @@ export default {
                 "colorTwitter": "#55acef",
                 "colorPinterest": "#bd071d",
                 "colorLinkedIn": "#0177b5",
+                "colorGoogle": "#34a853",
             },
             backgroundImage: {
                 "banner-recruiter":

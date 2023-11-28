@@ -137,7 +137,7 @@ class FormProfile extends Component
         $this->validate();
 
         if (!$data) {
-            $this->showAlert("error", "Busca por CEP", "Erro ao buscar CEP!");
+            $this->showAlert("error", "Busca por CEP", "CEP não encontrado!");
             return;
         }
 
