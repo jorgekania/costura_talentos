@@ -4,16 +4,15 @@
 
 input:checked + div {
     @apply border-primary-orange;
-  }
-  input:checked + div svg {
+}
+input:checked + div svg {
     @apply block;
-  }
-
+}
 
 /* Estilo para TomSelect */
 .item {
     background-color: #fa972f !important;
-    color: #FFFFFF !important;
+    color: #ffffff !important;
     border-radius: 5px;
     padding: 4px !important;
 }

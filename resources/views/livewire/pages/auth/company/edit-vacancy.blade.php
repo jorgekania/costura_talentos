@@ -10,20 +10,20 @@
                 <div class="bg-white mb-0 pb-6 px-4">
                     <div class="text-center flex justify-between items-center">
                         <h6 class="flex items-center text-blueGray-700 text-xl font-bold">
-                            <x-heroicon-o-hand-raised class="w-10 h-10 mr-3" />
+                            <x-bi-pencil-fill class="w-10 h-10 mr-3" />
 
-                            Vagas Criadas
+                            Editar Vaga
                         </h6>
-                        <a href="{{ route('company.addVacancies') }}"
+                        <a href="{{ route('company.myVacancies') }}"
                             class="flex m-auto items-center bg-blueGray-700 text-white hover:bg-blueGray-400 hover:text-blueGray-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mt-5">
-                            <x-heroicon-m-plus class="h-5 w-5 mr-2" />
-                            CRIAR NOVA VAGA
+                            <x-heroicon-o-hand-raised class="h-5 w-5 mr-2"/>
+                            Minhas Vagas
                         </a>
                     </div>
                 </div>
                 <div class="flex-auto px-4">
-                    <div x-show="activeTab === '#tabFormProfile'" class="flex-auto px-4" id="formProfile">
-                        <livewire:components.company.list-my-vacancies :company="$company" />
+                    <div>
+                        <livewire:components.company.form-edit-vacancy :company="$company" />
                     </div>
                 </div>
 

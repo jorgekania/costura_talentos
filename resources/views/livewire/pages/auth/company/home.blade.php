@@ -35,7 +35,7 @@
                 <a href="{{ route('company.addVacancies') }}" class="flex text-primary-blue hover:font-bold items-center"
                     title="Dashboard">
                     <x-heroicon-o-newspaper class="w-6 h-6 mr-3"/>
-                    Nova Vagas</a>
+                    Adiconar Vagas</a>
 
                 <a href="{{ route('company.logout') }}" class="flex text-red-600  hover:font-bold items-center"
                     title="Dashboard">

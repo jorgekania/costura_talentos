@@ -30,4 +30,9 @@ class DashboardController extends Controller
     {
         return view("livewire.pages.auth.company.add-vacancy");
     }
+
+    public function editVacancy()
+    {
+        return view("livewire.pages.auth.company.edit-vacancy");
+    }
 }

@@ -19,4 +19,9 @@ class FashionMachinesVacancy extends Model
         'industrial_machines_id',
         'is_active',
     ];
+
+    protected $casts = [
+        'id' => 'integer',
+        'industrial_machines_id'=> 'integer',
+    ];
 }

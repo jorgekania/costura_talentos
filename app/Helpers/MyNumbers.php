@@ -332,7 +332,7 @@ class MyNumbers
      * @param string $number
      * @return string
      */
-    public static function onlyNumber(string $number = null)
+    public static function onlyNumber(float|int|string $number = null)
     {
         return preg_replace("/[^0-9]/", "", $number);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Components\Company;
 
 use App\Enums\RegistrationType;
 use Livewire\Component;
@@ -39,7 +39,7 @@ class FormSocialMedia extends Component
     {
         $this->socialMediaForCompany();
 
-        return view("livewire.form-social-media");
+        return view("livewire.components.company.form-social-media");
     }
 
     public function save()

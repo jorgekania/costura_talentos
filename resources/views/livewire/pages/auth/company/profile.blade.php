@@ -10,7 +10,7 @@
                 <div class="bg-white mb-0 pb-6 px-4">
                     <div class="text-center flex justify-between items-center">
                         <h6 class="flex items-center text-blueGray-700 text-xl font-bold">
-                            <x-heroicon-o-building-office-2 class="w-10 h-10 mr-3"/>
+                            <x-heroicon-o-building-office-2 class="w-10 h-10 mr-3" />
                             Empresa
                         </h6>
                         <div class="-mb-12">
@@ -57,7 +57,8 @@
                                         }"
                                         class="inline-block textbluerGray-700 hover:text-blueGray-50 hover:border-t-8 hover:border-blueGray-700 rounded-t-lg py-1 px-4 text-sm font-medium text-center border-transparent border-t-8"
                                         data-active-tab="#tabFormSocialMedia"
-                                        x-on:click.prevent="activeTab = '#tabFormSocialMedia'; saveActiveTab(event)">Redes Socias</a>
+                                        x-on:click.prevent="activeTab = '#tabFormSocialMedia'; saveActiveTab(event)">Redes
+                                        Socias</a>
                                 </li>
                                 <li>
                                     <a href="#"
@@ -75,23 +76,23 @@
                     </div>
                 </div>
                 <div x-show="activeTab === '#tabFormProfile'" class="flex-auto px-4" id="formProfile">
-                    <livewire:form-profile :company="$company" />
+                    <livewire:components.company.form-profile :company="$company" />
                 </div>
 
                 <div x-show="activeTab === '#tabFormUploadLogo'" class="flex-auto px-4" id="formUploadLogo">
-                    <livewire:form-upload-logo :company="$company" />
+                    <livewire:components.company.form-upload-logo :company="$company" />
                 </div>
 
                 <div x-show="activeTab === '#tabFormContact'" class="flex-auto px-4" id="formContact">
-                    <livewire:form-contacts :company="$company" />
+                    <livewire:components.company.form-contacts :company="$company" />
                 </div>
 
                 <div x-show="activeTab === '#tabFormSocialMedia'" class="flex-auto px-4" id="formSocialMedia">
-                    <livewire:form-social-media :company="$company" />
+                    <livewire:components.company.form-social-media :company="$company" />
                 </div>
 
                 <div x-show="activeTab === '#tabFormPassword'" class="flex-auto px-4" id="formPassword">
-                    <livewire:form-update-password :company="$company" />
+                    <livewire:components.company.form-update-password :company="$company" />
                 </div>
             </div>
         </div>

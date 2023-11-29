@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Components\Company;
 
 use Livewire\Component;
 use App\Traits\AlertsTrait;
@@ -33,7 +33,7 @@ class FormUploadLogo extends Component
 
     public function render()
     {
-        return view("livewire.form-upload-logo");
+        return view("livewire.components.company.form-upload-logo");
     }
 
     public function uploadLogo(string $id)

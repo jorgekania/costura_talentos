@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Components\Company;
 
 use Exception;
 use Livewire\Component;
@@ -91,7 +91,8 @@ class FormProfile extends Component
     public function render()
     {
         $this->setTinyMCE();
-        return view("livewire.form-profile");
+
+        return view("livewire.components.company.form-profile");
     }
 
     public function editProfile()
@@ -153,6 +154,6 @@ class FormProfile extends Component
 
     public function setTinyMCE()
     {
-        $this->dispatch("renderTinymce", $this->company);
+        $this->dispatch("renderTinymce");
     }
 }

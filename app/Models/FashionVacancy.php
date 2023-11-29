@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Enums\PreferToWork;
 use App\Helpers\MyDateTime;
 use App\Enums\FormOfRemuneration;
+use App\Helpers\MyNumbers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -31,12 +32,22 @@ class FashionVacancy extends Model
         "hiring_regime",
         "activities_and_responsibilities",
         "vacancy_requirements",
+        "the_company_offers",
         "is_active",
     ];
 
     protected $casts = [
         "work_where" => FormOfRemuneration::class,
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($model) {
+            $model->remuneration_value = $model->remunerationFloatToInt($model->remuneration_value);
+        });
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<FashionIndustrialMachines>
@@ -106,5 +117,10 @@ class FashionVacancy extends Model
         } else {
             return "em " . MyDateTime::formatDate($this->created_at, "d/m/Y");
         }
+    }
+
+    public function remunerationFloatToInt($value)
+    {
+        return MyNumbers::onlyNumber($value);
     }
 }

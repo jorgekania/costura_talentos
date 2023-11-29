@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Components\Company;
 
 use Livewire\Component;
 use App\Traits\AlertsTrait;
@@ -38,7 +38,7 @@ class FormUpdatePassword extends Component
 
     public function render()
     {
-        return view("livewire.form-update-password");
+        return view("livewire.components.company.form-update-password");
     }
 
     public function save()

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Components\Company;
 
 use Dotenv\Util\Str;
 use Livewire\Component;
@@ -42,7 +42,7 @@ class FormContacts extends Component
     {
         $this->phonesForCompany();
 
-        return view("livewire.form-contacts");
+        return view("livewire.components.company.form-contacts");
     }
 
     public function save()

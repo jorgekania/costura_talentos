@@ -73,5 +73,6 @@ Route::controller(AuthCompanyController::class)
             Route::get("profile", [CompanyController::class,"profile"])->name(".profile");
             Route::get("my-vacancies", [CompanyController::class,"myVacancies"])->name(".myVacancies");
             Route::get("add-vacancies", [CompanyController::class,"addVacancies"])->name(".addVacancies");
+            Route::get("vacancies/{vacancy}/edit", [CompanyController::class,"editVacancy"])->name(".vacancy.edit");
         });
     });
