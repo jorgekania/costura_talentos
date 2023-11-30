@@ -11,7 +11,7 @@
                     <div class="text-center flex justify-between items-center">
                         <h6 class="flex items-center text-blueGray-700 text-xl font-bold">
                             <x-heroicon-o-building-office-2 class="w-10 h-10 mr-3" />
-                            Empresa
+                            Perfil Empresa
                         </h6>
                         <div class="-mb-12">
                             <ul class="flex flex-wrap -mb-px" x-init="setActiveTab">

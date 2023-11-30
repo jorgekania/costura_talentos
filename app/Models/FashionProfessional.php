@@ -7,11 +7,14 @@ namespace App\Models;
 use App\Enums\HiringRegime;
 use App\Enums\PreferToWork;
 use Illuminate\Support\Str;
+use App\Models\FashionPhone;
 use App\Enums\FormOfRemuneration;
+use App\Models\FashionSocialMediaCompany;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
@@ -56,6 +59,22 @@ class FashionProfessional extends Model implements Authenticatable
     ];
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionPhone>
+     */
+    public function phones(): HasMany
+    {
+        return $this->hasMany(FashionPhone::class, "fashion_company_id");
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionSocialMediaCompany>
+     */
+    public function socialMedia(): HasMany
+    {
+        return $this->hasMany(FashionSocialMediaCompany::class, "fashion_company_id");
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<FashionVacancy>
      */
     public function appliedVacancies(): BelongsToMany
@@ -72,17 +91,18 @@ class FashionProfessional extends Model implements Authenticatable
 
     public function getShortNameAttribute()
     {
+        $partsIgnored = ["de", "da", "do", "dos", "das"];
+        $words = explode(" ", $this->name);
 
-        $partsIgnored = ['de', 'da', 'do', 'dos', 'das'];
-        $words = explode(' ', $this->name);
-
-        $wordsFiltered = array_filter($words, function ($word) use ($partsIgnored) {
+        $wordsFiltered = array_filter($words, function ($word) use (
+            $partsIgnored
+        ) {
             return !in_array($word, $partsIgnored);
         });
 
         $firstName = reset($wordsFiltered);
         $lastName = end($wordsFiltered);
 
-        return $firstName . ' ' . $lastName;
+        return $firstName . " " . $lastName;
     }
 }

@@ -85,19 +85,19 @@ class FashionCompany extends Model implements Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionPhone>
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionPhonesCompany>
      */
     public function phones(): HasMany
     {
-        return $this->hasMany(FashionPhone::class);
+        return $this->hasMany(FashionPhonesCompany::class);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionSocialMedia>
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionSocialMediaCompany>
      */
     public function socialMedia(): HasMany
     {
-        return $this->hasMany(FashionSocialMedia::class);
+        return $this->hasMany(FashionSocialMediaCompany::class);
     }
 
     /**

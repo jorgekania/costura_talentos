@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-class FashionSocialMediaController extends Controller
+class FashionPhonesCompanyController extends Controller
 {
     //
 }

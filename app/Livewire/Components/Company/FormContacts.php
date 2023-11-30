@@ -7,7 +7,7 @@ use Livewire\Component;
 use App\Helpers\MyNumbers;
 use App\Helpers\MyStrings;
 use App\Traits\AlertsTrait;
-use App\Models\FashionPhone;
+use App\Models\FashionPhonesCompany;
 use App\Models\FashionCompany;
 use App\Enums\RegistrationType;
 use PhpParser\Node\Expr\Cast\Bool_;
@@ -55,7 +55,7 @@ class FormContacts extends Component
 
         $this->verifyIfPhoneIsMain();
 
-        FashionPhone::updateOrCreate(
+        FashionPhonesCompany::updateOrCreate(
             [
                 "phone_number" => $this->phone_number,
             ],
@@ -80,7 +80,7 @@ class FormContacts extends Component
 
     public function edit(string $id)
     {
-        $phone = FashionPhone::find($id);
+        $phone = FashionPhonesCompany::find($id);
 
         $this->phone_type = $phone->phone_type;
         $this->phone_number = MyNumbers::formatPhoneNumber(
@@ -91,7 +91,7 @@ class FormContacts extends Component
 
     public function remove(string $id)
     {
-        $phone = FashionPhone::find($id);
+        $phone = FashionPhonesCompany::find($id);
         $phone?->delete();
 
         $this->render();

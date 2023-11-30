@@ -6,7 +6,7 @@ use App\Enums\RegistrationType;
 use Livewire\Component;
 use App\Traits\AlertsTrait;
 use App\Models\FashionCompany;
-use App\Models\FashionSocialMedia;
+use App\Models\FashionSocialMediaCompany;
 
 class FormSocialMedia extends Component
 {
@@ -59,7 +59,7 @@ class FormSocialMedia extends Component
             return;
         }
 
-        FashionSocialMedia::updateOrCreate(
+        FashionSocialMediaCompany::updateOrCreate(
             [
                 "name_social_media" => $this->name_social_media,
             ],
@@ -83,7 +83,7 @@ class FormSocialMedia extends Component
 
     public function edit(string $id)
     {
-        $media = FashionSocialMedia::find($id);
+        $media = FashionSocialMediaCompany::find($id);
 
         $this->name_social_media = $media->name_social_media;
         $this->social_media_url = $media->social_media_url;
@@ -91,7 +91,7 @@ class FormSocialMedia extends Component
 
     public function remove(string $id)
     {
-        $media = FashionSocialMedia::find($id);
+        $media = FashionSocialMediaCompany::find($id);
         $media?->delete();
 
         $this->render();

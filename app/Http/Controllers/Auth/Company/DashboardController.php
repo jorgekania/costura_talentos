@@ -26,6 +26,16 @@ class DashboardController extends Controller
         return view("livewire.pages.auth.company.my-vacancies");
     }
 
+    public function myCandidates()
+    {
+        return view("livewire.pages.auth.company.my-candidates");
+    }
+
+    public function candidate()
+    {
+        return view("livewire.pages.auth.company.candidate");
+    }
+
     public function addVacancies()
     {
         return view("livewire.pages.auth.company.add-vacancy");

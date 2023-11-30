@@ -53,7 +53,6 @@
                             </a>
                             @endif
                             <a href="{{ route('vacancy', [Str::slug($vacancy['title']), $vacancy['id']]) }}"
-                                x-on:click="$wire.remove('{{ $vacancy['id'] }}')"
                                 class="flex px-2 py-1 font-light bg-orange-400 text-white rounded-md items-center hover:bg-orange-500 ms-3">
                                 <x-heroicon-o-eye class="h3- w-3 mr-2" />
 

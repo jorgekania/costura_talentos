@@ -8,7 +8,7 @@
                     $company = Auth::guard('company')->user();
                     $logoPath = $company->logo;
                 @endphp
-                <img src="{{ $company->provider && str_contains($company->logo, "https://") ? $company->logo : (Storage::disk('public')->exists($logoPath) ? Storage::url($logoPath) : Storage::url('company_logos/company-icon.png')) }}"
+                <img src="{{ $company->provider && str_contains($company->logo, 'https://') ? $company->logo : (Storage::disk('public')->exists($logoPath) ? Storage::url($logoPath) : Storage::url('company_logos/company-icon.png')) }}"
                     alt="{{ $company->corporate_reason }}"
                     class="rounded-full shadow-lg border-4 border-primary-blue h-36 w-36 object-cover">
             </div>
@@ -19,27 +19,32 @@
             <div class="mt-5 border-t border-primary-blue py-5 space-y-5">
                 <a href="{{ route('company.dashboard') }}" class="flex text-primary-blue hover:font-bold items-center"
                     title="Dashboard">
-                    <x-heroicon-o-squares-2x2 class="w-6 h-6 mr-3"/>
+                    <x-heroicon-o-squares-2x2 class="w-6 h-6 mr-3" />
                     Dashboard</a>
 
                 <a href="{{ route('company.profile') }}" class="flex text-primary-blue hover:font-bold items-center"
                     title="Dashboard">
-                    <x-heroicon-o-user class="w-6 h-6 mr-3"/>
-                    Perfil</a>
+                    <x-heroicon-o-building-office-2 class="w-6 h-6 mr-3" />
+                    Perfil Empresa</a>
 
                 <a href="{{ route('company.myVacancies') }}" class="flex text-primary-blue hover:font-bold items-center"
                     title="Dashboard">
-                    <x-heroicon-o-hand-raised class="w-6 h-6 mr-3"/>
+                    <x-bi-list-check class="w-6 h-6 mr-3" />
                     Vagas Criadas</a>
 
                 <a href="{{ route('company.addVacancies') }}" class="flex text-primary-blue hover:font-bold items-center"
                     title="Dashboard">
-                    <x-heroicon-o-newspaper class="w-6 h-6 mr-3"/>
+                    <x-ri-user-search-line class="w-6 h-6 mr-3" />
                     Adiconar Vagas</a>
+
+                <a href="{{ route('company.myCandidates') }}" class="flex text-primary-blue hover:font-bold items-center"
+                    title="Dashboard">
+                    <x-heroicon-o-hand-raised class="w-6 h-6 mr-3" />
+                    Candidados</a>
 
                 <a href="{{ route('company.logout') }}" class="flex text-red-600  hover:font-bold items-center"
                     title="Dashboard">
-                    <x-heroicon-o-arrow-right-on-rectangle class="w-6 h-6 mr-3"/>
+                    <x-heroicon-o-arrow-right-on-rectangle class="w-6 h-6 mr-3" />
                     Sair</a>
             </div>
         </div>

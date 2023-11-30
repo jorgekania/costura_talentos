@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\FashionPhonesCompanySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,8 +19,10 @@ class DatabaseSeeder extends Seeder
             FashionProfessionalSeeder::class,
             FashionCompanySeeder::class,
             FashionCompaniesSegmentSeeder::class,
-            FashionPhoneSeeder::class,
-            FashionSocialMediaSeeder::class,
+            FashionPhonesCompanySeeder::class,
+            FashionPhonesProfessionalSeeder::class,
+            FashionSocialMediaCompanySeeder::class,
+            FashionSocialMediaProfessionalSeeder::class,
             FashionVacancySeeder::class,
             FashionMachinesVacancySeeder::class,
             FashionProfessionalAppliedSeeder::class,

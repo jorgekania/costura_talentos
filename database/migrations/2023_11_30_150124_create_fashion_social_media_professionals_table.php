@@ -1,21 +1,20 @@
 <?php
 
-declare(strict_types=1);
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('fashion_social_media_companies', function (Blueprint $table) {
+        Schema::create('fashion_social_media_professionals', function (Blueprint $table) {
             $table->foreignUuid('id')->primary();
 
-            $table->foreignUuid('fashion_company_id')->constrained();
+            $table->foreignUuid('fashion_professional_id')->constrained('fashion_professionals', 'id', 'fashion_professional_id');
 
             $table->string('name_social_media');
             $table->string('social_media_url');
@@ -30,6 +29,6 @@ return new class() extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('fashion_social_media_companies');
+        Schema::dropIfExists('fashion_social_media_professionals');
     }
 };

@@ -10,9 +10,8 @@
                 <div class="bg-white mb-0 pb-6 px-4">
                     <div class="text-center flex justify-between items-center">
                         <h6 class="flex items-center text-blueGray-700 text-xl font-bold">
-                            <x-bi-list-check class="w-10 h-10 mr-3" />
-
-                            Vagas Criadas
+                            <x-heroicon-o-hand-raised class="w-10 h-10 mr-3" />
+                            Meus Candidatos
                         </h6>
                         <a href="{{ route('company.addVacancies') }}"
                             class="flex m-auto items-center bg-blueGray-700 text-white hover:bg-blueGray-400 hover:text-blueGray-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mt-5">
@@ -23,7 +22,7 @@
                 </div>
                 <div class="flex-auto px-4">
                     <div x-show="activeTab === '#tabFormProfile'" class="flex-auto px-4" id="formProfile">
-                        <livewire:components.company.list-my-vacancies :company="$company" />
+                        <livewire:components.company.list-my-candidates :company="$company" />
                     </div>
                 </div>
 

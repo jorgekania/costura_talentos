@@ -5,15 +5,16 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\PhoneType;
-use App\Enums\RegistrationType;
 use App\Helpers\MyNumbers;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Enums\RegistrationType;
+use App\Models\FashionProfessional;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class FashionPhone extends Model
+class FashionPhonesCompany extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -29,16 +30,23 @@ class FashionPhone extends Model
     ];
 
     protected $casts = [
-        "phone_type" => PhoneType::class,
-        "professional_or_company"=> RegistrationType::class
+        "phone_type" => PhoneType::class
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<FashionCompany, FashionPhone>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<FashionCompany, FashionPhonesCompany>
      */
     public function fashionCompanies(): BelongsTo
     {
         return $this->belongsTo(FashionCompany::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<FashionCompany, FashionPhonesCompany>
+     */
+    public function fashionProfessional(): BelongsTo
+    {
+        return $this->belongsTo(FashionProfessional::class);
     }
 
     public function getFormattedPhoneNumberAttribute()
