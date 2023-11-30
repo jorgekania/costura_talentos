@@ -33,21 +33,6 @@ class FashionPhonesCompany extends Model
         "phone_type" => PhoneType::class
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<FashionCompany, FashionPhonesCompany>
-     */
-    public function fashionCompanies(): BelongsTo
-    {
-        return $this->belongsTo(FashionCompany::class);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<FashionCompany, FashionPhonesCompany>
-     */
-    public function fashionProfessional(): BelongsTo
-    {
-        return $this->belongsTo(FashionProfessional::class);
-    }
 
     public function getFormattedPhoneNumberAttribute()
     {

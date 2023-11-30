@@ -40,7 +40,7 @@
                 <a href="{{ route('company.myCandidates') }}" class="flex text-primary-blue hover:font-bold items-center"
                     title="Dashboard">
                     <x-heroicon-o-hand-raised class="w-6 h-6 mr-3" />
-                    Candidados</a>
+                    Candidatos</a>
 
                 <a href="{{ route('company.logout') }}" class="flex text-red-600  hover:font-bold items-center"
                     title="Dashboard">

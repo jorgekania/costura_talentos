@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60e9c729de6e0f9a59b2bda3fb849d8b",
+    "content-hash": "2f6b05583e7a630f73710f0d4e187283",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -351,6 +351,78 @@
                 }
             ],
             "time": "2023-11-05T13:56:19+00:00"
+        },
+        {
+            "name": "codeat3/blade-akar-icons",
+            "version": "1.23.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeat3/blade-akar-icons.git",
+                "reference": "d608920db2a548b3f427f9389582199cfc438b72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeat3/blade-akar-icons/zipball/d608920db2a548b3f427f9389582199cfc438b72",
+                "reference": "d608920db2a548b3f427f9389582199cfc438b72",
+                "shasum": ""
+            },
+            "require": {
+                "blade-ui-kit/blade-icons": "^1.1",
+                "illuminate/support": "^8.0|^9.0|^10.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "codeat3/blade-icon-generation-helpers": "^0.3",
+                "codeat3/phpcs-styles": "^1.0",
+                "orchestra/testbench": "^6.0|^7.0|^8.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Codeat3\\BladeAkarIcons\\BladeAkarIconsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Codeat3\\BladeAkarIcons\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Swapnil Sarwe",
+                    "homepage": "https://swapnilsarwe.com"
+                },
+                {
+                    "name": "Dries Vints",
+                    "homepage": "https://driesvints.com"
+                }
+            ],
+            "description": "A package to easily make use of Akar Icons in your Laravel Blade views.",
+            "homepage": "https://github.com/codeat3/blade-akar-icons",
+            "keywords": [
+                "akar",
+                "blade",
+                "icons",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/codeat3/blade-akar-icons/issues",
+                "source": "https://github.com/codeat3/blade-akar-icons/tree/1.23.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/swapnilsarwe",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-05-16T15:02:49+00:00"
         },
         {
             "name": "davidhsianturi/blade-bootstrap-icons",

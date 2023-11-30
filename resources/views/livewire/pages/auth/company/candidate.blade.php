@@ -6,7 +6,7 @@
     @endphp
     <section class="py-1">
         <div class="w-full mx-auto">
-            <div class="relative flex flex-col min-w-0 break-words w-full rounded-lg bg-blueGray-100 border-0">
+            <div class="relative flex flex-col min-w-0 break-words w-full rounded-lg border-0">
                 <div class="bg-white mb-0 pb-6 px-4">
                     <div class="text-center flex justify-between items-center">
                         <h6 class="flex items-center text-blueGray-700 text-xl font-bold">
@@ -21,10 +21,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="flex-auto px-4">
-                    <div x-show="activeTab === '#tabFormProfile'" class="flex-auto px-4" id="formProfile">
-                        <livewire:components.company.candidate :company="$company" />
-                    </div>
+                <div class="flex-auto">
+                    <livewire:components.company.candidate :company="$company" />
                 </div>
 
             </div>

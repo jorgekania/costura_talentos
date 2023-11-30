@@ -7,9 +7,9 @@ namespace App\Models;
 use App\Enums\HiringRegime;
 use App\Enums\PreferToWork;
 use Illuminate\Support\Str;
-use App\Models\FashionPhone;
+use App\Models\FashionPhonesProfessional;
 use App\Enums\FormOfRemuneration;
-use App\Models\FashionSocialMediaCompany;
+use App\Models\FashionSocialMediaProfessional;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -59,19 +59,19 @@ class FashionProfessional extends Model implements Authenticatable
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionPhone>
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionPhonesProfessional>
      */
     public function phones(): HasMany
     {
-        return $this->hasMany(FashionPhone::class, "fashion_company_id");
+        return $this->hasMany(FashionPhonesProfessional::class);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionSocialMediaCompany>
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionSocialMediaProfessional>
      */
     public function socialMedia(): HasMany
     {
-        return $this->hasMany(FashionSocialMediaCompany::class, "fashion_company_id");
+        return $this->hasMany(FashionSocialMediaProfessional::class);
     }
 
     /**
@@ -104,5 +104,29 @@ class FashionProfessional extends Model implements Authenticatable
         $lastName = end($wordsFiltered);
 
         return $firstName . " " . $lastName;
+    }
+
+    public function getAddressProfessionalAttribute()
+    {
+        return $this->address .
+            ", " .
+            $this->number .
+            ", " .
+            $this->neighborhood .
+            " - " .
+            $this->city .
+            "/" .
+            $this->short_state;
+    }
+
+    public function getUrlGoogleMapsAttribute()
+    {
+        $address = str_replace("/", "+-+", $this->address_professional);
+        $formattedAddress = str_replace(" ", "+", $address);
+
+        $googleMapsUrl =
+            "https://www.google.com/maps/place/" . $formattedAddress;
+
+        return $googleMapsUrl;
     }
 }

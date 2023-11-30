@@ -134,14 +134,14 @@
                         <x-heroicon-o-information-circle class="w-10 h-10 mr-3" />
                         A Vaga Requer
                     </p>
-                    <p>{{ $vacancy->vacancy_requirements }}</p>
+                    <p>{!! $vacancy->vacancy_requirements !!}</p>
                 </div>
                 <div class="text-sm text-primary-blue mb-10">
                     <p class="flex items-center text-xl font-extrabold mb-5">
                         <x-heroicon-o-clipboard-document-check class="w-10 h-10 mr-3" />
                         Atividades e Responsabilidades
                     </p>
-                    <p>{{ $vacancy->activities_and_responsibilities }}</p>
+                    <p>{!! $vacancy->activities_and_responsibilities !!}</p>
                 </div>
 
                 @if (count($vacancy->industrialMachines) > 0)

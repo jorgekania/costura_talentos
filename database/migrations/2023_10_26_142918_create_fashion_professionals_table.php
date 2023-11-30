@@ -24,6 +24,8 @@ return new class() extends Migration {
             $table->string('city')->nullable();
             $table->string('long_state')->nullable();
             $table->string('short_state', 2)->nullable();
+            $table->text('specialty')->nullable();
+            $table->string('bio', 255)->nullable();
             $table->text('experience')->nullable();
             $table->string('portifolio_url')->nullable();
             $table->string('curriculum_url')->nullable();
