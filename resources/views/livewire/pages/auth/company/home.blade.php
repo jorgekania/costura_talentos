@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex max-w-screen-xl mt-20 bg-white">
+    <div class="flex mt-20 bg-white">
         <div class="w-1/4 bg-base rounded-lg p-5 mr-5 shadow-lg">
             <div class="w-36 m-auto">
                 @php

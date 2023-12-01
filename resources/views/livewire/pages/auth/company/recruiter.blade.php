@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="max-w-screen-xl mt-8 justify-center">
+    <div class="mt-8 justify-center">
         <div class="bg-banner-recruiter bg-cover bg-no-repeat shadow-[0px_20px_30px_0px_#4a5568]">
             <div class="w-full bg-gray-950/50 backdrop-opacity-50">
                 <div class="w-2/3 h-full mx-auto my- items-center text-center py-28">

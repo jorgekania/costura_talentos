@@ -1,6 +1,6 @@
-<div>
-    <nav class="flex w-full h-16 items-start justify-between">
-        <a href="/" title="Constura Talentos" class="flex w-64 h-full justify-center items-center bg-cover bg-center"
+<div class="m-auto flex w-full items-center justify-between rounded-xl bg-transparent py-2 px-5 shadow-lg">
+    <nav class="flex w-full items-center  items-start justify-between">
+        <a href="/" title="Constura Talentos" class="flex w-64 h-16 justify-center items-center bg-cover bg-center"
             style="background-image: url({{ Storage::url('global/logo-costura-talentos_h_color.png') }})">
 
         </a>
