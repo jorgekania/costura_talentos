@@ -19,6 +19,11 @@
             </thead>
             <tbody>
                 @foreach ($vacancies as $vacancy)
+                    @if ($vacancy->appliedProfessionals->count() < 1 && request()->candidates)
+                        <tr class="bg-white border-b text-center text-red-500">
+                            <td colspan="4" class="px-6 py-4">Nenhum candidato para esta vaga</td>
+                        </tr>
+                    @endif
                     @foreach ($vacancy->appliedProfessionals as $applied)
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-wrap">

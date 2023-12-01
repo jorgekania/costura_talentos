@@ -13,11 +13,17 @@
                             <x-heroicon-o-hand-raised class="w-10 h-10 mr-3" />
                             Meus Candidatos
                         </h6>
-                        <a href="{{ route('company.addVacancies') }}"
-                            class="flex m-auto items-center bg-blueGray-700 text-white hover:bg-blueGray-400 hover:text-blueGray-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mt-5">
-                            <x-heroicon-m-plus class="h-5 w-5 mr-2" />
-                            CRIAR NOVA VAGA
-                        </a>
+                        <div class="flex">
+                            <a href="{{ route('company.myVacancies') }}"
+                                class="flex m-auto items-center bg-green-600 text-white hover:bg-green-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mt-5">
+                                <x-bi-list-check class="h-5 w-5 mr-2" />
+                                VER VAGAS
+                                <a href="{{ route('company.addVacancies') }}"
+                                    class="flex m-auto items-center bg-blueGray-700 text-white hover:bg-blueGray-400 hover:text-blueGray-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mt-5">
+                                    <x-heroicon-m-plus class="h-5 w-5 mr-2" />
+                                    CRIAR NOVA VAGA
+                                </a>
+                        </div>
                     </div>
                 </div>
                 <div class="flex-auto px-4">

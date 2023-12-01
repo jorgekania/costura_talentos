@@ -24,9 +24,15 @@ class ListMyCandidates extends Component
         $this->vacancies = FashionVacancy::where(
             "fashion_company_id",
             $this->company->id
-        )
-            ->with(["specialization", "appliedProfessionals"])
-            ->get();
+        )->with(["specialization", "appliedProfessionals"]);
+
+        if (request()->candidates) {
+            $this->vacancies = $this->vacancies->where(
+                "id",
+                request()->candidates
+            );
+        }
+        $this->vacancies = $this->vacancies->get();
     }
 
     public function render()

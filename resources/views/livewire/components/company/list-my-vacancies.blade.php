@@ -10,6 +10,9 @@
                         Status
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Candidatos
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Especialização
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -38,6 +41,11 @@
                                 @endif
                             </div>
                         </td>
+                        <td class="px-6 py-4 text-center">
+                            <a class="px-4 py-2 mt-2 text-md text-blue-800 bg-blue-100 rounded-lg sm:mt-0 hover:text-blue-900 focus:text-blue-900 hover:bg-blue-300"
+                                href="{{ route('company.myCandidates', $vacancy->id ) }}"><span
+                                    class="mb-3 bg-blue-800 rounded-full px-2 py-1 text-center object-right-top text-white text-sm mr-1">{{ $vacancy->appliedProfessionals->count() }}</span>Candidatos</a>
+                        </td>
                         <td class="px-6 py-4">
                             {{ $vacancy->specialization->specialization }}
                         </td>
@@ -45,12 +53,12 @@
                             {{ MyDateTime::formatDate($vacancy['created_at'], 'd/m/Y') }}
                         </td>
                         <td class="flex justify-end items-ceter px-6 py-4">
-                            @if($vacancy['is_active'])
-                            <a wire:navigate href="{{ route('company.vacancy.edit', $vacancy->id) }}"
-                                class="flex px-2 py-1 font-light  text-white rounded-md items-center hover:bg-blue-500 {{ !$vacancy['is_active'] ? 'bg-gray-400' : 'bg-blue-600' }} ">
-                                <x-heroicon-o-pencil class="h-3 w-3 mr-2" />
-                                Editar
-                            </a>
+                            @if ($vacancy['is_active'])
+                                <a wire:navigate href="{{ route('company.vacancy.edit', $vacancy->id) }}"
+                                    class="flex px-2 py-1 font-light  text-white rounded-md items-center hover:bg-blue-500 {{ !$vacancy['is_active'] ? 'bg-gray-400' : 'bg-blue-600' }} ">
+                                    <x-heroicon-o-pencil class="h-3 w-3 mr-2" />
+                                    Editar
+                                </a>
                             @endif
                             <a href="{{ route('vacancy', [Str::slug($vacancy['title']), $vacancy['id']]) }}"
                                 class="flex px-2 py-1 font-light bg-orange-400 text-white rounded-md items-center hover:bg-orange-500 ms-3">

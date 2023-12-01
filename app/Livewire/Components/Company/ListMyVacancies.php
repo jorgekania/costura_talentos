@@ -23,7 +23,7 @@ class ListMyVacancies extends Component
             "fashion_company_id",
             $this->company->id
         )
-            ->with("specialization")
+            ->with(["specialization", "appliedProfessionals"])
             ->get();
     }
 
@@ -31,6 +31,5 @@ class ListMyVacancies extends Component
     {
         return view("livewire.components.company.list-my-vacancies");
     }
-
 
 }
