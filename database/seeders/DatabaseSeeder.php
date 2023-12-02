@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             FashionMachinesVacancySeeder::class,
             FashionProfessionalAppliedSeeder::class,
             FashionSkillSeeder::class,
+            FashionCountrySeeder::class,
             FashionAcademicEducationSeeder::class,
             FashionProfessionalAcademicEducationSeeder::class,
             FashionSkillsProfessionalSeeder::class,

@@ -19,7 +19,8 @@ return new class extends Migration
             $table->foreignId('fashion_academic_education_id')->constrained('fashion_academic_education', 'id', 'fashion_academic_education_id');
 
             $table->string('institution_name');
-            $table->string('country')->default('Brasil');
+            $table->foreignId('fashion_country_id')->constrained('fashion_countries', 'id', 'fashion_country_id');
+
             $table->string('state')->nullable();
             $table->string('status');
             $table->date('start_date');
