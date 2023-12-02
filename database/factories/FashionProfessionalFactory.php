@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Enums\EducationLevel;
 use App\Enums\HiringRegime;
 use App\Enums\PreferToWork;
 use App\Enums\FormOfRemuneration;
+use App\Enums\WorkingDay;
 use App\Models\FashionProfessionalSpecialization;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -31,6 +33,8 @@ class FashionProfessionalFactory extends Factory
             "experience" => fake()->realText(rand(100, 200)),
             "portifolio_url" => fake()->url(),
             "curriculum_url" => fake()->url(),
+            "education"=> EducationLevel::getRandomEnumValue(),
+            "working_day"=> WorkingDay::getRandomEnumValue(),
             "prefer_to_work_where" => PreferToWork::getRandomEnumValue(),
             "hiring_regime" => HiringRegime::getRandomEnumValue(),
             "form_of_remuneration" => FormOfRemuneration::getRandomEnumValue(),

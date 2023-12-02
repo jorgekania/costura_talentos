@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\FashionProfessionalAcademicEducation;
 use Illuminate\Database\Seeder;
 use Database\Seeders\FashionPhonesCompanySeeder;
 
@@ -26,6 +28,10 @@ class DatabaseSeeder extends Seeder
             FashionVacancySeeder::class,
             FashionMachinesVacancySeeder::class,
             FashionProfessionalAppliedSeeder::class,
+            FashionSkillSeeder::class,
+            FashionAcademicEducationSeeder::class,
+            FashionProfessionalAcademicEducationSeeder::class,
+            FashionSkillsProfessionalSeeder::class,
         ]);
     }
 }
