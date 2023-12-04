@@ -16,7 +16,7 @@ class Candidate extends Component
         $professional_id = request()->candidate;
 
         $this->professional = FashionProfessional::where("id", $professional_id)
-            ->with(["phones", "socialMedia"])
+            ->with(["phones", "socialMedia", "academicEducation"])
             ->first();
 
         $this->specialty = FashionProfessionalSpecialization::find(

@@ -62,7 +62,7 @@ Route::controller(AuthCompanyController::class)
     ->name("company")
     ->prefix("company")
     ->group(function () {
-        Route::get("register", "register")->name(".register");
+Route::get("register", "register")->name(".register");
         Route::get("login", "index")->name(".index");
         Route::post("login", "loginByForm")->name(".login");
         Route::get("recruiter", "recruiter")->name(".recruiter");

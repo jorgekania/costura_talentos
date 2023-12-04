@@ -7,6 +7,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\FashionProfessionalAcademicEducation;
+use App\Models\FashionProfessionalExperience;
 use Illuminate\Database\Seeder;
 use Database\Seeders\FashionPhonesCompanySeeder;
 
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
             FashionAcademicEducationSeeder::class,
             FashionProfessionalAcademicEducationSeeder::class,
             FashionSkillsProfessionalSeeder::class,
+            FashionProfessionalExperienceSeeder::class,
         ]);
     }
 }

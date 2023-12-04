@@ -75,6 +75,22 @@ class FashionProfessional extends Model implements Authenticatable
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionProfessionalAcademicEducation>
+     */
+    public function academicEducation(): HasMany
+    {
+        return $this->hasMany(FashionProfessionalAcademicEducation::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<FashionProfessionalExperience>
+     */
+    public function professionalExperiences(): HasMany
+    {
+        return $this->hasMany(FashionProfessionalExperience::class);
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<FashionVacancy>
      */
     public function appliedVacancies(): BelongsToMany
