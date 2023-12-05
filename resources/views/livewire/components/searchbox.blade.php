@@ -11,11 +11,11 @@
             @enderror
 
             @if($showResult)
-                <ul class="w-full absolute bg-white mt-1">
+                <ul class="w-full absolute bg-white mt-1 shadow-md">
                     @if(!empty($records))
                         @foreach($records as $record)
 
-                            <li wire:click="fetchAcademicEduicationDetail({{ $record->id }})" class="bg-blueGray-100 p-1 mb-px hover:bg-blueGray-700 hover:text-white hover:cursor-pointer">{{ $record->formation}}</li>
+                            <li wire:click="fetchAcademicEduicationDetail({{ $record->id }})" class="bg-blueGray-100 p-2 mb-px hover:bg-blueGray-700 hover:text-white hover:cursor-pointer">{{ $record->formation}}</li>
 
                         @endforeach
                     @endif

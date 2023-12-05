@@ -32,6 +32,7 @@
         </section>
     </div>
 
+    @livewireChartsScripts
     @livewireScripts
 </body>
 

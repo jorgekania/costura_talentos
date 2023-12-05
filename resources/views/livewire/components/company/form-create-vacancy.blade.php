@@ -93,7 +93,7 @@
                     </label>
                     <select name="hiring_regime" id="hiring_regime" wire:model="hiring_regime"
                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring-1 w-full">
-                        <option>Selecione o periodo</option>
+                        <option>Selecione o tipo</option>
                         @foreach (\App\Enums\HiringRegime::cases() as $item)
                             <option>{{ $item->value }}</option>
                         @endforeach

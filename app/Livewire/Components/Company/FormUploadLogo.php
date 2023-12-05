@@ -24,6 +24,7 @@ class FormUploadLogo extends Component
     ];
 
     public $company;
+    public $company_id;
     public $logo;
 
     public function mount()
@@ -43,9 +44,7 @@ class FormUploadLogo extends Component
         $fileName = $id . "." . $this->logo->getClientOriginalExtension();
         $path = $this->logo->storeAs("public/company_logos", $fileName);
 
-
         if ($path) {
-
             $path = Str::replace("public/", "", $path);
 
             $this->company->update([

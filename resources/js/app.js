@@ -16,4 +16,5 @@ import "tinymce/plugins/anchor";
 import "tinymce/plugins/fullscreen";
 import "tinymce/plugins/preview";
 import "tinymce/langs/pt_BR.js";
+import "tinymce/plugins/wordcount";
 import "./alerts.js";

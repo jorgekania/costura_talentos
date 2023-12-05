@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class FashionProfessionalSpecialization extends Model
 {
@@ -16,11 +17,11 @@ class FashionProfessionalSpecialization extends Model
     use HasUuids;
 
     protected $fillable = [
-        'id',
-        'uuid',
-        'specialization',
-        'description',
-        'is_active',
+        "id",
+        "specialization",
+        "specialization_slug",
+        "description",
+        "is_active",
     ];
 
     /**
@@ -28,6 +29,10 @@ class FashionProfessionalSpecialization extends Model
      */
     public function vacancies(): hasMany
     {
-        return $this->hasMany(FashionVacancy::class, 'specializations_id', 'id');
+        return $this->hasMany(
+            FashionVacancy::class,
+            "specializations_id",
+            "id"
+        );
     }
 }

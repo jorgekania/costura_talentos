@@ -51,11 +51,19 @@ class FashionVacanciesController extends Controller
 
     public function vacancy($_, string $id): View
     {
-        $vacancy = FashionVacancy::with(["company", "specialization", "industrialMachines"])->where('id',$id)->first();
+        $vacancy = FashionVacancy::with([
+            "company",
+            "specialization",
+            "industrialMachines",
+        ])
+            ->where("id", $id)
+            ->first();
         $otherVacancies = FashionVacancy::where("id", "<>", $id)
             ->orderBy("created_at", "desc")
             ->limit(5)
             ->get();
+
+        $vacancy->incrementViewCount();
 
         return view("vacancies.vacancy", [
             "vacancy" => $vacancy,

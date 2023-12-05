@@ -7,17 +7,19 @@ namespace App\Models;
 use App\Enums\HiringRegime;
 use App\Enums\PreferToWork;
 use Illuminate\Support\Str;
-use App\Models\FashionPhonesProfessional;
 use App\Enums\FormOfRemuneration;
-use App\Models\FashionSocialMediaProfessional;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\FashionPhonesProfessional;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\FashionSocialMediaProfessional;
 use Illuminate\Contracts\Auth\Authenticatable;
+use App\Models\FashionProfessionalSpecialization;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class FashionProfessional extends Model implements Authenticatable
 {
@@ -72,6 +74,18 @@ class FashionProfessional extends Model implements Authenticatable
     public function socialMedia(): HasMany
     {
         return $this->hasMany(FashionSocialMediaProfessional::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne<FashionProfessionalSpecialization>
+     */
+    public function specialization(): HasOne
+    {
+        return $this->hasOne(
+            FashionProfessionalSpecialization::class,
+            "id",
+            "specialty"
+        );
     }
 
     /**

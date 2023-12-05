@@ -34,6 +34,7 @@ class FashionVacancy extends Model
         "vacancy_requirements",
         "the_company_offers",
         "is_active",
+        "viewed",
     ];
 
     protected $casts = [
@@ -45,7 +46,9 @@ class FashionVacancy extends Model
         parent::boot();
 
         static::saving(function ($model) {
-            $model->remuneration_value = $model->remunerationFloatToInt($model->remuneration_value);
+            $model->remuneration_value = $model->remunerationFloatToInt(
+                $model->remuneration_value
+            );
         });
     }
 
@@ -122,5 +125,11 @@ class FashionVacancy extends Model
     public function remunerationFloatToInt($value)
     {
         return MyNumbers::onlyNumber($value);
+    }
+
+    public function incrementViewCount()
+    {
+        $this->viewed++;
+        $this->save();
     }
 }

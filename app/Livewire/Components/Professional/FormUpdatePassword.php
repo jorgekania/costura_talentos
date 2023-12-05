@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Components\Company;
+namespace App\Livewire\Components\Professional;
 
 use Livewire\Component;
 use App\Traits\AlertsTrait;
-use Illuminate\Support\Facades\Auth;
+use App\Helpers\PasswordGenerator;
 use Illuminate\Support\Facades\Hash;
 
 class FormUpdatePassword extends Component
@@ -26,20 +26,20 @@ class FormUpdatePassword extends Component
             "A confirmação não conferee com a nova senha",
     ];
 
-    public $company;
-    public $company_id;
+    public $professional;
+    public $professional_id;
     public string $current_password;
     public string $new_password;
     public string $password_confirmation;
 
     public function mount()
     {
-        $this->company_id = $this->company->id;
+        $this->professional_id = $this->professional->id;
     }
 
     public function render()
     {
-        return view("livewire.components.company.form-update-password");
+        return view("livewire.components.professional.form-update-password");
     }
 
     public function save()
@@ -55,7 +55,7 @@ class FormUpdatePassword extends Component
             return;
         }
 
-        $this->company->update([
+        $this->professional->update([
             "password" => Hash::make($this->new_password),
         ]);
 
@@ -66,7 +66,28 @@ class FormUpdatePassword extends Component
         );
 
         auth()
-            ->guard("company")
+            ->guard("professional")
+            ->logout();
+
+        $this->dispatch("redirectLogout");
+    }
+
+    public function generatePassword()
+    {
+        $password = PasswordGenerator::generatePassword();
+
+        $this->professional->update([
+            "password" => Hash::make($password),
+        ]);
+
+        $this->showAlert(
+            "success",
+            "Geração de Senha",
+            "Senha provisória com sucesso! Redirecionando..."
+        );
+
+        auth()
+            ->guard("professional")
             ->logout();
 
         $this->dispatch("redirectLogout");
@@ -74,7 +95,9 @@ class FormUpdatePassword extends Component
 
     public function checkCurrentPassword()
     {
-        if (!Hash::check($this->current_password, $this->company->password)) {
+        if (
+            !Hash::check($this->current_password, $this->professional->password)
+        ) {
             return false;
         }
 

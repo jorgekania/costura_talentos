@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Livewire\Components\Company;
+namespace App\Livewire\Components\Professional;
 
-use Dotenv\Util\Str;
 use Livewire\Component;
 use App\Helpers\MyNumbers;
 use App\Helpers\MyStrings;
 use App\Traits\AlertsTrait;
-use App\Models\FashionPhonesCompany;
-use App\Models\FashionCompany;
 use App\Enums\RegistrationType;
-use PhpParser\Node\Expr\Cast\Bool_;
+use App\Models\FashionProfessional;
+use App\Models\FashionPhonesProfessional;
 
 class FormContacts extends Component
 {
@@ -26,23 +24,23 @@ class FormContacts extends Component
         "phone_type.required" => "Selecione o tipo",
     ];
 
-    public $company;
+    public $professional;
     public array $phones = [];
-    public string $company_id = "";
+    public string $professional_id = "";
     public $phone_type = [];
     public string $phone_number = "";
     public bool $is_main = false;
 
     public function mount()
     {
-        $this->company_id = $this->company->id;
+        $this->professional_id = $this->professional->id;
     }
 
     public function render()
     {
         $this->phonesForCompany();
 
-        return view("livewire.components.company.form-contacts");
+        return view("livewire.components.professional.form-contacts");
     }
 
     public function save()
@@ -55,12 +53,12 @@ class FormContacts extends Component
 
         $this->verifyIfPhoneIsMain();
 
-        FashionPhonesCompany::updateOrCreate(
+        FashionPhonesProfessional::updateOrCreate(
             [
                 "phone_number" => $this->phone_number,
             ],
             [
-                "fashion_company_id" => $this->company_id,
+                "fashion_professional_id" => $this->professional_id,
                 "phone_type" => $this->phone_type,
                 "is_main" => $this->is_main,
             ]
@@ -79,7 +77,7 @@ class FormContacts extends Component
 
     public function edit(string $id)
     {
-        $phone = FashionPhonesCompany::find($id);
+        $phone = FashionPhonesProfessional::find($id);
 
         $this->phone_type = $phone->phone_type;
         $this->phone_number = MyNumbers::formatPhoneNumber(
@@ -90,7 +88,7 @@ class FormContacts extends Component
 
     public function remove(string $id)
     {
-        $phone = FashionPhonesCompany::find($id);
+        $phone = FashionPhonesProfessional::find($id);
         $phone?->delete();
 
         $this->render();
@@ -104,16 +102,16 @@ class FormContacts extends Component
 
     protected function phonesForCompany()
     {
-        $this->company = FashionCompany::where(
+        $this->professional = FashionProfessional::where(
             "id",
-            $this->company_id
+            $this->professional_id
         )->first();
-        $this->phones = $this->company->phones->toArray();
+        $this->phones = $this->professional->phones->toArray();
     }
 
     protected function verifyIfPhoneIsMain()
     {
-        $phones = $this->company->phones;
+        $phones = $this->professional->phones;
 
         foreach ($phones as $phone) {
             if ($phone["is_main"] === 1) {

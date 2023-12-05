@@ -3,13 +3,14 @@
 @section('content')
     <div class="flex max-w-screen-xl mt-20 bg-white">
         <div class="w-1/4 bg-base rounded-lg p-5 mr-5">
-            <div class="w-1/2 m-auto">
+            <div class="w-36 m-auto">
                 @php
-                    $logoPath = Auth::guard('professional')->user()->avatar;
+                    $professional = Auth::guard('professional')->user();
+                    $avatarPath = Auth::guard('professional')->user()->avatar;
                 @endphp
-                <img src="{{ Auth::guard('professional')->user()->provider ? Auth::guard('professional')->user()->avatar : (Storage::disk('public')->exists($logoPath) ? Storage::url($logoPath) : Storage::url('professional_avatars/company-icon.png')) }}"
-                    alt="{{ Auth::guard('professional')->user()->corporate_reason }}"
-                    class="rounded-full shadow-lg border-4 border-primary-blue">
+                <img src="{{ $professional->provider && str_contains($professional->avatar, 'https://') ? $professional->avatar : (Storage::disk('public')->exists($avatarPath) ? Storage::url($avatarPath) : Storage::url('professional_avatars/user-icon.png')) }}"
+                    alt="{{ Auth::guard('professional')->user()->name }}"
+                    class="rounded-full shadow-lg border-4 border-primary-blue h-36 w-36 object-cover">
             </div>
             <p
                 class="px-5 py-2 m-auto bg-white text-center mt-5 text-primary-blue font-semibold text-md rounded-full shadow-md">
@@ -25,6 +26,11 @@
                     title="Dashboard">
                     <x-heroicon-o-user class="w-6 h-6 mr-3"/>
                     Perfil</a>
+
+                <a href="{{ route('professional.profile') }}" class="flex text-primary-blue hover:font-bold items-center"
+                    title="Dashboard">
+                    <x-bi-file-text class="w-6 h-6 mr-3"/>
+                    Currículo</a>
 
                 <a href="{{ route('professional.myVacancies') }}" class="flex text-primary-blue hover:font-bold items-center"
                     title="Dashboard">
