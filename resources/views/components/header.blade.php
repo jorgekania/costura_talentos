@@ -1,5 +1,5 @@
 <div class="m-auto flex w-full items-center justify-between rounded-xl bg-transparent py-2 px-5 shadow-lg">
-    <nav class="flex w-full items-center  items-start justify-between">
+    <nav class="flex w-full items-center justify-between">
         <a href="/" title="Constura Talentos" class="flex w-64 h-16 justify-center items-center bg-cover bg-center"
             style="background-image: url({{ Storage::url('global/logo-costura-talentos_h_color.png') }})">
 
@@ -21,7 +21,7 @@
                         $avatarPath = Auth::guard('professional')->user()->avatar;
                     @endphp
 
-                    <div x-data="{ open: false }" class="bg-base w-64 shadow flex justify-center items-center rounded-full">
+                    <div x-data="{ open: false }" class="bg-base w-64 shadow flex justify-center items-center rounded-full z-50">
                         <div @click="open = !open" class="relative  border-transparent py-1 w-64"
                             :class="{ 'border-base transform transition duration-300 ': open }"
                             x-transition:enter-end="transform opacity-100 scale-100"

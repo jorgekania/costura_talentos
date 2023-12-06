@@ -1,4 +1,28 @@
 <div class="w-1/2 m-auto">
+    @if ($company->provider && is_null($company->password))
+        <div class="flex items-center justify-center my-5">
+            <x-heroicon-o-shield-exclamation class="w-24 h-24 text-yellow-500 mr-4"/>
+            <h6 class="text-3xl mt-3 mb-6 text-yellow-500 font-bold uppercase">
+                Atenção
+            </h6>
+        </div>
+
+        <div class="flex flex-wrap mb-10 text-primary-blue">
+            <p class="mb-5">Você esta conectado através do <span class="uppercase font-extrabold">{{ $company->provider }}</span> </p>
+            <p class="mb-5">Desta forma não é possivel efetuar troca de senha.</p>
+            <p class="mb-5">Se ainda quiser criar uma senha para acesso via seu email e esta senha, clique abaixo e enviaremos um senha provisória para <span class="font-extrabold">{{ $company->email }}</span></p>
+            <p class="mb-5">Use seu e-mail e senha provisória para acessar o painel e então modificar a senha de acesso</p>
+        </div>
+
+        <div class="flex justify-center mb-10">
+            <button
+                class="flex items-center bg-blueGray-700 text-white hover:bg-blueGray-400 hover:text-blueGray-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mt-5"
+                type="button" x-on:click="$wire.generatePassword('{{ $company->id }}')">
+                <x-ri-mail-send-fill class="w-6 h-5 mr-2"/>
+                GERAR SENHA PROVISÓRIA
+            </button>  
+        </div> 
+    @else
     <form>
         <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
             Atualize sua senha de acesso
@@ -61,4 +85,5 @@
             </div>
         </div>
     </form>
+    @endif
 </div>
